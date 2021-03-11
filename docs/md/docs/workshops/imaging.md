@@ -49,10 +49,8 @@ var myp5 = new p5((p) => {
         p.createCanvas(500, 400);
         // here we use a callback to display the image after loading
         p.loadImage('../sketches/lenna.png', img => {
-            let width=500;
-            let d = p.pixelDensity();
-            let pink=p.color(230,176,200);
-          p.image(img, 0, 0,width,width);
+            
+          p.image(img, 0, 0);
           //p.filter(p.INVERT);
           p.loadPixels();
         
@@ -71,7 +69,7 @@ var myp5 = new p5((p) => {
    
   
   
-  }, "negative"); // --> the id should be the same file name
+  }, "negative");
 ```
 
 
