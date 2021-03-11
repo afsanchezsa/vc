@@ -2,7 +2,7 @@ var myp5 = new p5((p) => {
     
   
     p.setup = function() {
-        p.createCanvas(710, 400);
+        p.createCanvas(500, 400);
         // here we use a callback to display the image after loading
         p.loadImage('../sketches/lenna.png', img => {
             let width=500;
