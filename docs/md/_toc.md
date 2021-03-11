@@ -8,6 +8,7 @@
 > [Computer Graphics](/docs/workshops/cg)
 > [HCI](/docs/workshops/hci)
 
+
 > :Collapse label=P5 Code Snippets
 > 
 > [P5 Component](/docs/snippets/component)
@@ -17,6 +18,7 @@
 > [3D](/docs/snippets/3d)
 > [Libs](/docs/snippets/lib)
 > [Sound](/docs/snippets/sound)
+
 
 > :Collapse label=Members
 > 
