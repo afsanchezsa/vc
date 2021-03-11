@@ -79,7 +79,7 @@ var myp5 = new p5((p) => {
 
 # Gray Scale Image
 
-Adapted from [here](https://p5js.org/es/reference/#/p5/pixels).
+Adapted from [here](https://p5js.org/es/reference/#/p5/filter).
 
 > :P5 sketch=/docs/sketches/gray.js, width=500, height=400
 

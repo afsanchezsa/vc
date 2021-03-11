@@ -1,8 +1,8 @@
 # NN
-Andrés Felipe Sánchez Sánchez.
-Daniela Duque Garcia.
-Valentina Bernal Buitrago.
-Juan Diego Medina.
+- Andrés Felipe Sánchez Sánchez.
+- Daniela Duque Garcia.
+- Valentina Bernal Buitrago.
+- Juan Diego Medina.
 ## Bio
 
 ## Interests
