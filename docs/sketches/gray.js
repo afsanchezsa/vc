@@ -4,7 +4,7 @@ function preload(){
     img = loadImage('../sketches/lenna.png');
 }
 function setup() {
-  createCanvas(710,400);
+  createCanvas(500,400);
   image(img,0,0);
   filter(GRAY);
   //Esta es otra forma de hacerlo sacando el promedio de los canales RGB y asignando
