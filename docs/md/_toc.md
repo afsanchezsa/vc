@@ -22,4 +22,7 @@
 
 > :Collapse label=Members
 > 
+> [Valetina Bernal Buitrago](/docs/members/ValentinaBernalBuitrago)
+> [Daniela Duque Garcia](/docs/members/DanielaDuqueGarcia)
+> [Juan Diego Medina Naranjo](/docs/members/JuanDiegoMedinaNaranjo)
 > [Andres Felipe Sanchez Sanchez](/docs/members/AndresFelipeSanchezSanchez)
