@@ -4,7 +4,10 @@
     I am 21 years old, I was born in Bogotá. I am a student of systems and computing engineering.
 
 ## Interests
-I am interested in machine learning algorithms, backend software development cibersecurity and statistics.
+- Machine learning algorithms.
+- backend software development.
+- cibersecurity.
+- statistics.
 ## Contributions
 
 I haven't had the opportunity to participate and contribute in a research open source project, but I would like enroll in a project in the future.
