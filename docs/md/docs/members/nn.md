@@ -1,4 +1,4 @@
-# NN
+# Integrantes
 - Andrés Felipe Sánchez Sánchez.
 - Daniela Duque Garcia.
 - Valentina Bernal Buitrago.
