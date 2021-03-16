@@ -1,7 +1,7 @@
 # Andres Felipe Sanchez Sanchez
 
 ## Bio
-    I am 21 years old, I was born in Bogotá. I am a student of systems and computing engineering.
+I am 21 years old, I was born in Bogotá. I am a student of systems and computing engineering.
 
 ## Interests
 - Machine learning algorithms.
