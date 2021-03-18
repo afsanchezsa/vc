@@ -19,39 +19,48 @@ I haven't had the opportunity to participate and contribute in a research open s
 - Read books in my free time.
 
 ## Grid Illusions
-
-The light or dark illusory spots perceived at the intersections of black or white bars
-are among the best-known examples of a simultaneous contrast illusion. Th e light
-spots were first noticed by one Reverend WSelwyn in the early 1840s and reported
-by Sir David Brewster in 1844 at a meeting in York (Brewster 1844). When a window
-with opaque dark bars was viewed against the bright sky, there was a whitish spot at
-the crossings. The luminous spots were brightest when not seen directly. The converse
-of this illusion, dark spots, was described (but not illustrated) by Ludimar Hermann in
-1870, who saw them in a matrix of Chladni figures(1)
-, in the translation of TyndalFs
-Sound {Der Schall 1869). In 1878, Hering discussed the illusion in his Zur Lehre vom
-Lichtsinne and in 1907 included two grids with opposite polarities in the GraefeSaemisch Handbook of Ophthalmology (figures 29 and 30) showing the dark and bright spots, respectively. The next to mention the illusory spots was Prandtl (1927),
-followed by Ehrenstein (1941, 1954) and Dombrowsky (1942). Wade (1978, 1982)
-and Hood and Petry (unpublished manuscript) have traced the history of this intriguing phenomenon that has become popular not only in visual science, but also in op art
-(Vasarely 1965, 1974a, 1974b; Bode 1972; Wade 1982).
+A grid illusion is any kind of grid that deceives a person's vision. The two most common types of grid illusions are the Hermann grid illusion and the scintillating grid illusion.
 ### The Hermann Grid Illusion
-In this grid the
-intersections of the white bars look less bright (actually pale grey) and those of the
-black bars look less dark (actually dark grey) than the bars themselves, even though
-the luminance of the bars is uniform* In the tradition of Mach (1865), Hermann
-(1870) attributed the illusory spots to simultaneous contrast. Anticipating the idea of
-a center - surround receptive field (Kuffler 1953) by eighty years, he wrote:
+The Hermann grid illusion (1870) in its best-known form consists of intersecting vertical
+and horizontal white bars superimposed on a black background, thereby forming an
+array of evenly spaced black squares. At the intersection of the bars, ghostly gray
+smudges are perceived comprising the illusion.  The smudges are seen everywhere except at the center of gaze. In general the grey blobs disappear when looking directly at an intersection.
 >"An explanation of this phenomenon by simultaneous contrast is easy. The apparent
 brightness of each point on the white grid depends on the amount of black which exists in
 a certain area around it. If one assumes the diameter of this area to be larger than the
 width of the white stripes, then each point on the intersections receives in its surround less
 black than any other point on the white stripes; its brightness will thus be less enhanced
-by contrast and must therefore appear darker."
+by contrast and must therefore appear darker." -Kuffler 1953
 https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.997.2387&rep=rep1&type=pdf
+
+The dark spot at the intersection would merely be the consequence of less simultaneous contrast present in this location. An analogous explanation had already been
+suggested by Brewster (1844) for light illusory spots. The assumption of a relative
+depression of brightness or darkness at the intersection, due to less contrast, is
+consistent with modern accounts of these phenomena.
+
+Today, the most commonly accepted explanation of the Hermann grid illusion is
+that suggested by Baumgartner (1960), which is based on the receptive-field organization of the human visual system. In Baumgartner's model (figure lb, left), brightness
+signalling on-center cells stimulated by the intersection receive about twice as much
+lateral inhibition as cells stimulated by the bars. As a result, the intersection appears
+darker. Conversely, in a black grid on a white background, darkness-signalling offcenter cells stimulated by the intersection receive only about half as much lateral
+activation as cells stimulated by the bars (figure lb, right). Thus, the intersection
+appears lighter. 
+> :P5 sketch=/docs/sketches/hermman.js, width=400, height=400
 ### Scintillating Grid Illusion
 The scintillating grid illusion is an optical illusion, discovered by E. and B. Lingelbach and M. Schrauf in 1994. It is often considered a variation of the Hermann grid illusion but possesses different properties.
 
 It is constructed by superimposing white discs on the intersections of orthogonal gray bars on a black background. Dark dots seem to appear and disappear rapidly at random intersections, hence the label "scintillating". When a person keeps his or her eyes directly on a single intersection, the dark dot does not appear. The dark dots disappear if one is too close to or too far from the image.
-> :P5 sketch=/docs/sketches/scintillating.js, width=400, height=400
+
+It was discovered over  by J. R. Bergen in 1985 (as reported in Schrauf et al. (1997)). In short, the dots in the scintillating grid are really there - they are just sometimes experienced as being black when they are in fact white. Philosophers of perception often distinguish between three kinds of perceptual experience: (i) veridical (accurate) perception of the world; (ii) illusion—nonveridical (innaccurate) perception of the world; (iii) hallucination—failure to perceive the world (Macpherson 2013). In the case of the scintillating grid, the nonveridical perception of the white dots as black seem to make it an unequivocal example of an illusion. This means that some of the philosophical interest surrounding the Hermann grid – specifically, the question of whether objects which exist only as artefacts of the visual system should be considered hallucinatory – does not apply to the scintillating grid. However, it is worth noting that on some philosophical views there is no difference in kind between hallucination and illusion (e.g. Brewer 2008).
+
+The classical explanation of the physiology behind the scintillating grid illusion is due to Baumgartner (1960).Baumgartner believed that the effect is due to inhibitory processes in the retinal ganglion cells, the neurons that transmit signals from the eye to the brain. To each cell there corresponds a small region of the retina called the receptive field, where photoreceptive rods and cones can trigger an electrical response in that cell. The receptive fields of adjacent ganglion cells may overlap.
+https://www.illusionsindex.org/i/scintillating-grid
+
+<p align="center">
+  <img width="430" height="550" src="../sketches/eye.png">
+</p>
+
+Following Baumgartner's reasoning, the ON-centre ganglion cells whose receptive fields are centred on the grid crossings have 4 inhibiting light (grey) areas in their surround, whereas those whose fields centre on ‘streets’ have only 2 inhibiting light (grey) areas.The on-centre neurons centred at grid crossings will fire less and so these locations on the grid appear darker. The disappearance of the grey patches whenever we try to focus on them is explained by the fact that the ganglion cells in the centre of the retina (the fovea) which mediate high-acuity vision have very small receptive fields, so the range of their stimulus lies entirely inside the intersection point. Furthermore, the fact that the illusion occurs with inverted colours is neatly explained by the existence of the second kind of retinal ganglion cell, the OFF-centre neuron.
+> :P5 sketch=/docs/sketches/scintillating.js, width=400, height=400, align=center
 
 > :ToCPrevNext
