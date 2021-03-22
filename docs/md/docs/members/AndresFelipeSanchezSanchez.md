@@ -73,6 +73,9 @@ ganglion cells whose receptive field centers fall into the intersections of the 
 bars than in cells whose receptive fields fall along non-intersecting regions of the bars.This difference in activity is due to the fact that at the intersections more surround
 inhibition is produced in ON-center retinal ganglion cells than at other sites. The
 same considerations apply to OFF-center ganglion cells when contrast is reversed.
+<p align="center">
+  <img width="600" height="600" src="../sketches/onoff.png">
+</p>
 
 The dark spot at the intersection would merely be the consequence of less simultaneous contrast present in this location. An analogous explanation had already been
 suggested by Brewster (1844) for light illusory spots. The assumption of a relative
