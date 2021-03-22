@@ -31,7 +31,7 @@ a certain area around it. If one assumes the diameter of this area to be larger 
 width of the white stripes, then each point on the intersections receives in its surround less
 black than any other point on the white stripes; its brightness will thus be less enhanced
 by contrast and must therefore appear darker." -Kuffler 1953
-https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.997.2387&rep=rep1&type=pdf
+<!--https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.997.2387&rep=rep1&type=pdf-->
 ### History
 The Hermann grid illusion is an optical illusion reported by Ludimar Hermann in 1870.
 Hermann’s Grid is an example of lateral inhibition — a mechanism of our visual system.
@@ -49,10 +49,10 @@ determine the size of centers and surrounds in perceptive fields in humans. A ne
 which is simply the outlines of the squares of the Hermann grid, shows that receptive fields
 having a range of excitatory and inhibitory sizes may be responsible for the Hermann
 illusion.
-https://www.keer.org/keer2010/Papers/0556.pdf
+<!--https://www.keer.org/keer2010/Papers/0556.pdf-->
 
 The classical explanation of the physiological mechanism behind the Hermann grid illusion is due to Baumgartner (1960). Baumgartner believed that the effect is due to inhibitory processes in the retinal ganglion cells, the neurons that transmit signals from the eye to the brain. To each cell there corresponds a small region of the retina called the receptive field, where photoreceptive rods and cones can trigger an electrical response in that cell. The receptive fields of adjacent ganglion cells may overlap. Kuffler (1953) used microelectrodes placed in the retinae of cats to measure the response of individual neurons subject to pinpoints of light stimulus, and showed that the receptive field can be broken down into a central disc and a surrounding annulus. Kuffler was also able to demonstrate that retinal ganglion cells come in two distinct kinds – either ON-centre or OFF-centre. It is the difference in stimulus between the centre and the surround of a given neuron that determines the strength of its response (i.e. how rapidly it fires). Baumgartner reasoned that the ON-centre ganglion cells whose receptive fields are centred on the grid crossings have 4 inhibiting bright areas in their surround, whereas those whose fields centre on ‘streets’ have only 2 inhibiting bright areas.
-https://www.illusionsindex.org/i/hermann-grid
+<!--https://www.illusionsindex.org/i/hermann-grid-->
 ### Aplications
 The range of application of Hermann grid and visual illusion is from Graphic Design to
 Media Design and Advertisement Design. After World War Two there is a common view 
@@ -60,7 +60,7 @@ internationally that war is destroy for human. Then some designs become tools of
 colonization. Some designs encourage unnecessary consumption by confuse consumers. But
 designers should tell the truth to consumers, not should cheat consumers for consumption. It
 is the responsibility for designers to educate consumers correct perceptions of consumption.
-https://www.keer.org/keer2010/Papers/0556.pdf
+<!--https://www.keer.org/keer2010/Papers/0556.pdf-->
 ### Visual Phenomenon
 The explanation suggested is based on the findings made by neurophysiologists demonstrating
 that retinal ganglion cells have antagonistic center/surround organization (Kuffler 1953;
@@ -107,6 +107,16 @@ width within a wide range, and of the type of distortion, except when one side o
 remains straight. They conclude that the main cause of the Hermann grid illusion is the
 straightness of the edges of the grid lines, and we propose a theory which explains why the
 illusory spots occur in the original Hermann grid and why they disappear in curved grids.
+### Bibliography
+Spillman(1993). *The Hermann grid illusion: a tool for studying human
+perceptive field organization* . Recuperado de : https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.997.2387&rep=rep1&type=pdf
+
+Hsiu-Wen(2010). *A SURVEY OF EFFECT OF DECLINING
+AND ROTATING ON HERMANN GRID*. Recuperado de : https://www.keer.org/keer2010/Papers/0556.pdf
+
+The Illusion Index. *Hermann Grid* . Recuperado de : https://www.illusionsindex.org/i/hermann-grid
+
+
 <!--### Scintillating Grid Illusion
 The scintillating grid illusion is an optical illusion, discovered by E. and B. Lingelbach and M. Schrauf in 1994. It is often considered a variation of the Hermann grid illusion but possesses different properties.
 
