@@ -35,7 +35,8 @@ Mathematicians have studied the mathematical and computational properties of imp
 
 ### Visual Phenomenon
 <p align="center">
-  <img width="600" height="600" src="../../../sketches/visual_illusions/penrose/penroseTriangle.png">
+  <!-- <img width="600" height="600" src="../../../sketches/visual_illusions/penrose/penroseTriangle.png"> -->
+  <img width="500" height="500" src="../../../sketches/visual_illusions/penrose/penroseTriangle.gif">
 </p>
 
 ### Bibliography
