@@ -51,7 +51,7 @@ having a range of excitatory and inhibitory sizes may be responsible for the Her
 illusion.
 <!--https://www.keer.org/keer2010/Papers/0556.pdf-->
 
-The classical explanation of the physiological mechanism behind the Hermann grid illusion is due to Baumgartner (1960). Baumgartner believed that the effect is due to inhibitory processes in the retinal ganglion cells, the neurons that transmit signals from the eye to the brain. To each cell there corresponds a small region of the retina called the receptive field, where photoreceptive rods and cones can trigger an electrical response in that cell. The receptive fields of adjacent ganglion cells may overlap. Kuffler (1953) used microelectrodes placed in the retinae of cats to measure the response of individual neurons subject to pinpoints of light stimulus, and showed that the receptive field can be broken down into a central disc and a surrounding annulus. Kuffler was also able to demonstrate that retinal ganglion cells come in two distinct kinds – either ON-centre or OFF-centre. It is the difference in stimulus between the centre and the surround of a given neuron that determines the strength of its response (i.e. how rapidly it fires). Baumgartner reasoned that the ON-centre ganglion cells whose receptive fields are centred on the grid crossings have 4 inhibiting bright areas in their surround, whereas those whose fields centre on ‘streets’ have only 2 inhibiting bright areas.
+The classical explanation of the physiological mechanism behind the Hermann grid illusion is due to Baumgartner (1960). Baumgartner believed that the effect is due to inhibitory processes in the retinal ganglion cells, the neurons that transmit signals from the eye to the brain. To each cell there corresponds a small region of the retina called the receptive field, where photoreceptive rods and cones can trigger an electrical response in that cell. The receptive fields of adjacent ganglion cells may overlap. Kuffler (1953) used microelectrodes placed in the retina of cats to measure the response of individual neurons subject to pinpoints of light stimulus, and showed that the receptive field can be broken down into a central disc and a surrounding annulus. Kuffler was also able to demonstrate that retinal ganglion cells come in two distinct kinds – either ON-centre or OFF-centre. It is the difference in stimulus between the centre and the surround of a given neuron that determines the strength of its response (i.e. how rapidly it fires). Baumgartner reasoned that the ON-centre ganglion cells whose receptive fields are centred on the grid crossings have 4 inhibiting bright areas in their surround, whereas those whose fields centre on ‘streets’ have only 2 inhibiting bright areas.
 <!--https://www.illusionsindex.org/i/hermann-grid-->
 ### Aplications
 The range of application of Hermann grid and visual illusion is from Graphic Design to
@@ -83,11 +83,11 @@ depression of brightness or darkness at the intersection, due to less contrast, 
 consistent with modern accounts of these phenomena.
 
 Today, the most commonly accepted explanation of the Hermann grid illusion is
-that suggested by Baumgartner (1960), which is based on the receptive-field organization of the human visual system. In Baumgartner's model (figure lb, left), brightness
+that suggested by Baumgartner (1960), which is based on the receptive-field organization of the human visual system. In Baumgartner's model , brightness
 signalling on-center cells stimulated by the intersection receive about twice as much
 lateral inhibition as cells stimulated by the bars. As a result, the intersection appears
 darker. Conversely, in a black grid on a white background, darkness-signalling offcenter cells stimulated by the intersection receive only about half as much lateral
-activation as cells stimulated by the bars (figure lb, right). Thus, the intersection
+activation as cells stimulated by the bars ). Thus, the intersection
 appears lighter. 
 
 ### Implementation
