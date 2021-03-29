@@ -1,5 +1,6 @@
 let fingers;
 let lienzo;
+let contador;
 const matrix = [ [ 0, -1, 0 ],
 [ -1,  4, -1 ],
 [ 0, -1, 0 ] ];
@@ -15,7 +16,7 @@ function setup() {
 //  
    lienzo=createImage(320,240);
 
-
+contador=0;
 
 
 }
@@ -24,22 +25,22 @@ function draw() {
  // background(150);
   
   // draw the video frame to canvas
+  
   fingers.loadPixels();
+  console.log(fingers.pixels.length);
   //filter(GRAY);
   //image(fingers, 150, 150); // draw a second copy to canvas
   lienzo.loadPixels();
   
   // Begin our loop for every pixel in the smaller image
-  for (let x = 0; x <fingers.width; x++) {
-    for (let y = 0; y < fingers.heigth; y++ ) {
-      let c = convolution(x, y, matrix, matrixsize, fingers);
+  for (let x = 0; x <100; x++) {
+    for (let y = 0; y < 100; y++ ) {
+      let l=(x+y*fingers.width)*4;
+      lienzo.pixels[l]=fingers.pixels[l];
+      lienzo.pixels[l+1]=fingers.pixels[l+1];
+      lienzo.pixels[l+2]=fingers.pixels[l+2];
+      lienzo.pixels[l+3]=fingers.pixels[l+3];
       
-      // retrieve the RGBA values from c and update pixels()
-      let loc = (x + y*fingers.width) * 4;
-      lienzo.pixels[loc] = red(c);
-      lienzo.pixels[loc + 1] = green(c);
-      lienzo.pixels[loc + 2] = blue(c);
-      lienzo.pixels[loc + 3] = alpha(c);
     }
   }
 
