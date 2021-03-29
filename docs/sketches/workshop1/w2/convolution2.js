@@ -17,7 +17,7 @@ function setup() {
    lienzo=createImage(320,240);
 
 contador=0;
-
+frameRate(1);
 
 }
 
@@ -33,13 +33,14 @@ function draw() {
   lienzo.loadPixels();
   
   // Begin our loop for every pixel in the smaller image
-  for (let x = 0; x <100; x++) {
-    for (let y = 0; y < 100; y++ ) {
-      let l=(x+y*fingers.width)*4;
-      lienzo.pixels[l]=fingers.pixels[l];
-      lienzo.pixels[l+1]=fingers.pixels[l+1];
-      lienzo.pixels[l+2]=fingers.pixels[l+2];
-      lienzo.pixels[l+3]=fingers.pixels[l+3];
+  for (let x = 0; x <fingers.width; x++) {
+    for (let y = 0; y < fingers.height; y++ ) {
+      let c = convolution(x, y, matrix, matrixsize, fingers);
+      let loc = (x + y*fingers.width) * 4;
+      lienzo.pixels[loc] = red(c);
+      lienzo.pixels[loc + 1] = green(c);
+      lienzo.pixels[loc + 2] = blue(c);
+      lienzo.pixels[loc + 3] = alpha(c);
       
     }
   }
@@ -47,7 +48,7 @@ function draw() {
   lienzo.updatePixels();
   
   image(fingers,0,0); 
-  image(lienzo,100,100);
+  image(lienzo,0,fingers.height);
   
 }
 
