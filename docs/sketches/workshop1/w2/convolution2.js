@@ -32,14 +32,14 @@ function draw() {
   // Begin our loop for every pixel in the smaller image
   for (let x = 0; x <fingers.width; x++) {
     for (let y = 0; y < fingers.heigth; y++ ) {
-      //let c = convolution(x, y, matrix, matrixsize, fingers);
+      let c = convolution(x, y, matrix, matrixsize, fingers);
       
       // retrieve the RGBA values from c and update pixels()
       let loc = (x + y*fingers.width) * 4;
-      lienzo.pixels[loc] = 180//red(c);
-      lienzo.pixels[loc + 1] = 180//green(c);
-      lienzo.pixels[loc + 2] = 180//blue(c);
-      lienzo.pixels[loc + 3] = 0//alpha(c);
+      lienzo.pixels[loc] = red(c);
+      lienzo.pixels[loc + 1] = green(c);
+      lienzo.pixels[loc + 2] = blue(c);
+      lienzo.pixels[loc + 3] = alpha(c);
     }
   }
 
