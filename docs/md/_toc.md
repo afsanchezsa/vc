@@ -27,6 +27,7 @@
 
 > :Collapse label=Members
 > 
+> [Gabriel Andres Avendaño Casadiego](/docs/members/GabrielAndresAvendanoCasadiego)
 > [Valetina Bernal Buitrago](/docs/members/ValentinaBernalBuitrago)
 > [Daniela Duque Garcia](/docs/members/DanielaDuqueGarcia)
 > [Juan Diego Medina Naranjo](/docs/members/JuanDiegoMedinaNaranjo)
