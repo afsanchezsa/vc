@@ -7,6 +7,10 @@
 > [Algovis](/docs/workshops/algovis)
 > [Computer Graphics](/docs/workshops/cg)
 > [HCI](/docs/workshops/hci)
+> [W1.1](/docs/workshops/w1_1)
+> [W1.2](/docs/workshops/w1_2)
+> [W1.3](/docs/workshops/w1_3)
+> [W1.4](/docs/workshops/w1_4)
 
 
 > :Collapse label=P5 Code Snippets
