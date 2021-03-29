@@ -16,8 +16,8 @@ function setup() {
 //  
    lienzo=createImage(320,240);
 
-contador=0;
-frameRate(1);
+
+frameRate(1);//solo un frame por segundo pues no contamos con gpu
 
 }
 
@@ -28,9 +28,9 @@ function draw() {
   
   fingers.loadPixels();
   console.log(fingers.pixels.length);
-  //filter(GRAY);
-  //image(fingers, 150, 150); // draw a second copy to canvas
-  lienzo.loadPixels();
+  
+  
+  lienzo.loadPixels();//en lienzo pintamos imagen convolucionada
   
   // Begin our loop for every pixel in the smaller image
   for (let x = 0; x <fingers.width; x++) {
@@ -48,12 +48,12 @@ function draw() {
   lienzo.updatePixels();
   
   image(fingers,0,0); 
-  image(lienzo,0,fingers.height);
+  image(lienzo,0,fingers.height);//pintamos la imagen convolucionada debajo de la original
   
 }
 
 function mousePressed() {
-  fingers.loop(); // set the video to loop and start playing
+  fingers.loop(); // al presionar en el lienzo blanco inicia el video
 }
 function convolution(x, y, matrix, matrixsize, img) {
     let rtotal = 0.0;
