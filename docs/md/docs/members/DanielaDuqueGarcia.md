@@ -29,7 +29,7 @@ At the moment I haven't had the opportunity to contribure in a open source proje
 
  ### Black-White Gradient
 
-This is a physiological illusion. This optical illusion is created by a linear black-white gradient in the backgroud. The brick at the front is a white-colored. The illusion makes the brain thinks that the brick is a gradient-colored but this is not true. Your brain overestimates the color of the bar in the middle, in an effort to make out the shape of the bar.The gradient background makes you think the bar is the opposite gradient in order to clearly see the shape of the bar
+This is a physiological illusion. This optical illusion is created by a linear black-white gradient in the backgroud. The brick at the front is a gray-colored. The illusion makes the brain thinks that the brick is a gradient-colored but this is not true. Your brain overestimates the color of the bar in the middle, in an effort to make out the shape of the bar.The gradient background makes you think the bar is the opposite gradient in order to clearly see the shape of the bar
 
 #### Color and brightness constancies
 

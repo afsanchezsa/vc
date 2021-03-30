@@ -8,6 +8,7 @@ class Brick{
     // this function creates the brick
     createBrick(){
       fill(this.brickColor);
+      noStroke();
       rect(this.xPos, this.yPos, 100, 100);
     }
 
@@ -34,6 +35,7 @@ class Brick{
       // this function creates the brick
       createBrick(){
         fill(this.brickColor);
+        noStroke();
         rect(this.xPos, this.yPos, 690, 50);
       }
   }
@@ -52,35 +54,34 @@ class Brick{
   }
  
   
-  let brick1 = new Brick("white",150);
-  let brick2 = new Brick("white",10,10);
-  let brick3 = new Brick("white",10,600);
+  let brick1 = new Brick("gray",150);
+  let brick2 = new Brick("gray",10,10);
+  let brick3 = new Brick("gray",10,600);
   
-  let barra = new Barra("white",300,10);
+  let barra = new Barra("gray",300,10);
 
   brick1.setSpeed();
   
   function draw() {
-    // Fondo
-    background(0);
+    
         
     if(mouseIsPressed){
       background(50);
     }
 
-   
+ 
+    if(!mouseIsPressed){
+      setGradient(0, 0, width, height, b1, b2, 2);
+    }
+
+       
     brick1.createBrick();
     brick2.createBrick();
     brick3.createBrick();
-
     
     barra.createBrick();
 
     brick1.moveBrick();
-  
-    if(!mouseIsPressed){
-      setGradient(0, 0, width, height, b1, b2, 2);
-    }
 
  
   }
