@@ -8,6 +8,7 @@ class Brick{
     // this function creates the brick
     createBrick(){
       fill(this.brickColor);
+      noStroke();
       rect(this.xPos, this.yPos, 100, 100);
     }
 
@@ -34,6 +35,7 @@ class Brick{
       // this function creates the brick
       createBrick(){
         fill(this.brickColor);
+        noStroke();
         rect(this.xPos, this.yPos, 690, 50);
       }
   }
@@ -68,19 +70,19 @@ class Brick{
       background(50);
     }
 
-   
+ 
+    if(!mouseIsPressed){
+      setGradient(0, 0, width, height, b1, b2, 2);
+    }
+
+       
     brick1.createBrick();
     brick2.createBrick();
     brick3.createBrick();
-
     
     barra.createBrick();
 
     brick1.moveBrick();
-  
-    if(!mouseIsPressed){
-      setGradient(0, 0, width, height, b1, b2, 2);
-    }
 
  
   }
