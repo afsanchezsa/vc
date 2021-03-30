@@ -54,17 +54,16 @@ class Brick{
   }
  
   
-  let brick1 = new Brick("white",150);
-  let brick2 = new Brick("white",10,10);
-  let brick3 = new Brick("white",10,600);
+  let brick1 = new Brick("gray",150);
+  let brick2 = new Brick("gray",10,10);
+  let brick3 = new Brick("gray",10,600);
   
-  let barra = new Barra("white",300,10);
+  let barra = new Barra("gray",300,10);
 
   brick1.setSpeed();
   
   function draw() {
-    // Fondo
-    background(0);
+    
         
     if(mouseIsPressed){
       background(50);
