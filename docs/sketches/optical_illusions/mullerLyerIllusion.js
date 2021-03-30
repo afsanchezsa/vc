@@ -1,99 +1,68 @@
-class Brick{
-  constructor(bc, y,x = 0){
-    this.brickColor = bc;
-    this.yPos = y;
-    this.xPos = x;
+let slider;
+let drawGuidingLines = false;
+
+function setup() {
+  createCanvas(710, 400);
+  slider = createSlider(150, 250, 200);
+  slider.position(10, 10);
+  slider.style('width', '80px');
+
+  button = createButton('Click me!');
+  button.position(120, 0);
+  button.mousePressed(toggleGuidingLines);
+}
+
+function draw() {
+  // Fondo
+  background(255);
+  
+  
+  distance = slider.value();;
+  arrowSize = 50;
+  distanceBetweenLines = 120;
+
+  x1 = distance; 
+  y = 70; 
+  x2 = width - distance;
+
+  strokeWeight(4);
+  stroke(0);
+  line(x1, y, x2, y);
+  drawLeftArrow(x1, y, arrowSize);
+  drawRightArrow(x2, y, arrowSize);
+
+  y += distanceBetweenLines; 
+  strokeWeight(4);
+  line(x1, y, x2, y);
+  drawRightArrow(x1, y, arrowSize);
+  drawLeftArrow(x2, y, arrowSize);
+
+  y += distanceBetweenLines;
+  strokeWeight(4); 
+  line(x1, y, x2, y);
+  drawLeftArrow(x1, y, arrowSize);
+  drawLeftArrow(x2, y, arrowSize);
+
+  if (drawGuidingLines) {
+    stroke(255, 0, 0);
+    strokeWeight(2);
+    line(x1, 0, x1, height);
+    line(x2, 0, x2, height);
   }
-  
-    // this function creates the brick
-    createBrick(){
-      fill(this.brickColor);
-      rect(this.xPos, this.yPos, 100, 100);
-    }
+}
 
-    setSpeed(){
-      this.xSpeed = 1;
-    }
+function drawLeftArrow(x, y, size) {
+  strokeWeight(4);
+  line(x, y, x + size, y + size);
+  line(x, y, x + size, y - size);
+} 
 
-    moveBrick(){
-      this.xPos+=this.xSpeed;
-      if(this.xPos+100 >= width || this.xPos <= 0){
-        this.xSpeed*=-1;
-      }
-    }
-  
-  }
-  
-  class Barra{
-    constructor(bc, y,x = 0){
-      this.brickColor = bc;
-      this.yPos = y;
-      this.xPos = x;
-    }
-    
-      // this function creates the brick
-      createBrick(){
-        fill(this.brickColor);
-        rect(this.xPos, this.yPos, 690, 50);
-      }
-  }
-  // Constantes
-  
-  let b1, b2, c1, c2;
-  
-  function setup() {
-    createCanvas(710, 400);
-  
-    // Definir colores
-    b1 = color(255);
-    b2 = color(0);
-    c1 = color(204, 102, 0);
-    c2 = color(0, 102, 153);
-  }
- 
-  
-  let brick1 = new Brick("white",150);
-  let brick2 = new Brick("white",10,10);
-  let brick3 = new Brick("white",10,600);
-  
-  let barra = new Barra("white",300,10);
+function drawRightArrow(x, y, size) {
+  strokeWeight(4);
+  line(x - size, y - size, x, y);
+  line(x - size, y + size, x, y);
+} 
 
-  brick1.setSpeed();
-  
-  function draw() {
-    // Fondo
-    background(0);
-        
-    if(mouseIsPressed){
-      background(50);
-    }
-
-   
-    brick1.createBrick();
-    brick2.createBrick();
-    brick3.createBrick();
-
-    
-    barra.createBrick();
-
-    brick1.moveBrick();
-  
-    if(!mouseIsPressed){
-      setGradient(0, 0, width, height, b1, b2, 2);
-    }
-
- 
-  }
-  
-  function setGradient(x, y, w, h, c1, c2, axis) {
-    noFill();
-      // Gradiente de izquierda a derecha
-      for (let i = x; i <= x + w; i++) {
-        let inter = map(i, x, x + w, 0, 1);
-        let c = lerpColor(c1, c2, inter);
-        stroke(c);
-        line(i, y, i, y + h);
-      
-    }
-  }
-  
+function toggleGuidingLines() {
+  drawGuidingLines = !drawGuidingLines;
+}
