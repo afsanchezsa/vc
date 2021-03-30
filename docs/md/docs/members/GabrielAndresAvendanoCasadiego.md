@@ -25,6 +25,6 @@ At the moment I haven't had the opportunity to contribure in a open source proje
 
  TODO
 
-> :P5 sketch=/docs/sketches/optical_illusions/DanielaDuque.js, width=710, height=400
+> :P5 sketch=/docs/sketches/optical_illusions/mullerLyerIllusion.js, width=710, height=400
 
 > :ToCPrevNext
