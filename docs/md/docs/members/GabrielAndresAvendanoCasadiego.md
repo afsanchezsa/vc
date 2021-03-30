@@ -21,9 +21,9 @@ At the moment I haven't had the opportunity to contribure in a open source proje
 - Skywatching, astronomy, star gazing
 
 ## Optical illusion
- ### Black-White Gradient
+ ### No optical ilusion yet
 
- T
+ TODO
 
 > :P5 sketch=/docs/sketches/optical_illusions/DanielaDuque.js, width=710, height=400
 
