@@ -6,12 +6,12 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(800, 900);
+  createCanvas(700, 800);
   img_original.resize(150, 150);
 
   imgProcessOutput = imagePreprocessing(img_original, contrast=100); // applies contrast and luma to image. Changes img_transformed by reference
   let ascii_image = mapPixelToASCII(imgProcessOutput); // takes every luma value and assings an ascci character according to brighness
-  printCharacters(ascii_image, 5, 0, size=6); // Prints all characters every 'size' px apart  
+  printCharacters(ascii_image, 5, 0, size=5); // Prints all characters every 'size' px apart  
 }
 
 /**
