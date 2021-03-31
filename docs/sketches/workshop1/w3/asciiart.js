@@ -1,36 +1,95 @@
+let img_original;
 
-let img;
-
-function preload(){
-img=loadImage('../sketches/lenna.png');
+function preload() {
+  let location = '../sketches/workshop1/w3/lenna.png';
+  img_original = loadImage(location);
 }
-function setup(){
-    
-    pixelDensity(0.1);//reducimos la densidad del pixel para que hayan menos pixeles
-    //por pulgada y asi poder pintar mejor los caracteres
 
-    createCanvas(img.width*2,img.height*3);//creamos un canvas para pintar los caracteres
-    
-    let characters=['.','i',"X",'W'];//un arreglo con los caracteres del menos denso al mas denso
-    let redLevel;
-    let str='';//variable str para almacernar los caracteres
-    img.loadPixels();
-    
-    
-    for (let j = 0; j < img.height; j++) {
+function setup() {
+  createCanvas(800, 900);
+  img_original.resize(150, 150);
+
+  imgProcessOutput = imagePreprocessing(img_original, contrast=100); // applies contrast and luma to image. Changes img_transformed by reference
+  let ascii_image = mapPixelToASCII(imgProcessOutput); // takes every luma value and assings an ascci character according to brighness
+  printCharacters(ascii_image, 5, 0, size=6); // Prints all characters every 'size' px apart  
+}
+
+/**
+ * 
+ * @param {*} img : image to be processed. Function changes the same reference to image 
+ * @param {*} contrast : value from 0 to 100 to apply contrast
+ * @returns 
+ */
+function imagePreprocessing (img, contrast){
+  applyContrast(img, contrast);
+  return applyLuma(img);
+}
+
+/**
+ * 
+ * @param {*} img : image to be processed. Function changes the same reference to image 
+ * @returns 
+ */
+function applyLuma (img){
+  let lumaMatrix = []; // Stores luma values in matrix : [[row1], [row2], ..., [rowN]]
+
+  let luma_Y = (pixel) => 0.2126 * red(pixel) + 0.7152 * green(pixel) + 0.0722 * blue(pixel);
+  img.loadPixels();
+  for (let j = 0; j < img.height; j++) {
+    let row = [] // Single row of the matrix
     for (let i = 0; i < img.width; i++) {
-          redLevel=red(img.get(i,j));//obtenemos el valor del canal rojo del pixel en la coordenada i,j
-          str+=characters[Math.floor(redLevel/64)]//dependiendo el valor de rojo le asigna el caracter
-           }
-        str+='\n';//salto de linea
-      }
-    //ahora reajustamos la densidad inicial
-    pixelDensity(1.0);
-    //el tamaño de la letra debe ser 3 para que se vea con claridad
-    textSize(3);
-    //esta fuente siempre ocupa el mismo espacio para todos los caracteres
-    textFont('Courier New');
-    //pintamos la cadena de string en el canvas
-    text(str,0,0);
-    
+      row.push(luma_Y(img.get(i, j))); // Apply luma to every pixel in image
+    }
+    lumaMatrix.push(row); 
+  }
+  return { 
+    values: lumaMatrix ,
+    minValue: luma_Y(color(0, 0, 0)), // Used for mapPixelToASCII
+    maxValue: luma_Y(color(255, 255, 255)) // Used in mapPixelToASCII
+  }
+}
+
+
+function applyContrast(img, contrast) {
+  img.loadPixels();
+  for (let x = 0; x < img.width; x +=1) {
+    for (let y = 0; y < img.height; y +=1) {
+      let c = img.get(x,y);
+      let factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+      let nR = constrain(factor*(red(c)-128) + 128, 0, 255);
+      let nG = constrain(factor*(green(c)-128) + 128, 0, 255);
+      let nB = constrain(factor*(blue(c)-128) + 128, 0, 255);
+      let nC = color(nR,nG,nB);
+      img.set(x,y,nC);
+    }
+  }
+  img.updatePixels();
+}
+
+function printCharacters(ascii_image, x_start, y_start, size) {
+  let h = ascii_image.length;
+  let w = ascii_image[0].length;
+  textFont('Courier New');
+  textSize(size);
+  for (let i = 0; i < h; i++){
+    for (let j = 0; j < w; j++){
+      let x = x_start + size * j;
+      let y = y_start + size * i;
+      text(ascii_image[i][j], x, y)
+    }
+  }
+}
+
+function mapPixelToASCII(imgProcessOutput) {
+  // ASCII order taken from http://paulbourke.net/dataformats/asciiart/
+  let characters = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
+
+  let minValue = imgProcessOutput.minValue;
+  let maxValue = imgProcessOutput.maxValue;
+  return imgProcessOutput.values.map((row) => {
+    return row.map((value) => {
+      let position = Math.round(map(value, minValue, maxValue, 0, characters.length - 1));
+      return characters[position];
+    })
+  })
 }
