@@ -1,37 +1,38 @@
 let fingers;
 let lienzo;
-let contador;
-const matrix = [ [ 0, -1, 0 ],
-[ -1,  4, -1 ],
-[ 0, -1, 0 ] ];
+let contador=0;
+
+const Blur_Kernel= [ [0.11, 0.11, 0.11],
+[0.11, 0.11, 0.11],
+[0.11, 0.11, 0.11]]; 
+const Border_Detection= [ [ -1, -1, -1 ],
+[ -1,  8, -1 ],
+[ -1, -1, -1 ] ];
+const Emboss= [  [ 1,  1,  0],
+[ 1,  0, -1 ],
+[ 0,  -1,  -1] ]; 
+const Sharpe= [  [ 0, -1, 0 ],
+[ -1,  5, -1],
+[ 0, -1, 0 ] ]; 
+
+let matrixCarrousel=[Blur_Kernel,Border_Detection,Emboss,Sharpe];
+let matrix =matrixCarrousel[0] ;
 const matrixsize=3;
 function setup() {
- 
-  
   fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
   fingers.hide(); 
-  
-
-  createCanvas(700, 700);
-//  
-   lienzo=createImage(320,240);
-
-
-frameRate(1);//solo un frame por segundo pues no contamos con gpu
-
+  createCanvas(330, 500);
+  lienzo=createImage(320,240);
+  button=createButton('Change Kernel!');
+  button.position(120,490);
+  button.mousePressed(changeMatrix);
+  frameRate(3);//solo un frame por segundo pues no contamos con gpu
 }
 
 function draw() {
- // background(150);
-  
-  // draw the video frame to canvas
-  
   fingers.loadPixels();
-  console.log(fingers.pixels.length);
-  
   
   lienzo.loadPixels();//en lienzo pintamos imagen convolucionada
-  
   // Begin our loop for every pixel in the smaller image
   for (let x = 0; x <fingers.width; x++) {
     for (let y = 0; y < fingers.height; y++ ) {
@@ -44,14 +45,15 @@ function draw() {
       
     }
   }
-
   lienzo.updatePixels();
-  
   image(fingers,0,0); 
   image(lienzo,0,fingers.height);//pintamos la imagen convolucionada debajo de la original
-  
 }
+function changeMatrix(){
+  contador=(contador+1)%matrixCarrousel.length;
 
+  matrix=matrixCarrousel[contador];
+}
 function mousePressed() {
   fingers.loop(); // al presionar en el lienzo blanco inicia el video
 }
