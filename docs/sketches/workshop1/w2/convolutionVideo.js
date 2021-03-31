@@ -1,88 +1,91 @@
- 
-let img;
-let w = 100;
+let fingers;
+let lienzo;
+let contador=0;
 
-// It's possible to convolve the image with many different 
-// matrices to produce different effects. This is a high-pass 
-// filter; it accentuates the edges. 
-const matrix = [ [ 0, -1, 0 ],
-[ -1,  4, -1 ],
-[ 0, -1, 0 ] ];
+const Blur_Kernel= [ [0.11, 0.11, 0.11],
+[0.11, 0.11, 0.11],
+[0.11, 0.11, 0.11]]; 
+const Border_Detection= [ [ -1, -1, -1 ],
+[ -1,  8, -1 ],
+[ -1, -1, -1 ] ];
+const Emboss= [  [ 1,  1,  0],
+[ 1,  0, -1 ],
+[ 0,  -1,  -1] ]; 
+const Sharpe= [  [ 0, -1, 0 ],
+[ -1,  5, -1],
+[ 0, -1, 0 ] ]; 
 
-function preload() {
-  img = loadImage('../sketches/lenna.png');
-}
-
+let matrixCarrousel=[Blur_Kernel,Border_Detection,Emboss,Sharpe];
+let matrix =matrixCarrousel[0] ;
+const matrixsize=3;
 function setup() {
-  createCanvas(img.width, img.height);
-    
-  img.loadPixels();
-
-  // pixelDensity(1) for not scaling pixel density to display density
-  // for more information, check the reference of pixelDensity()
-  pixelDensity(1);
- 
-  
+  fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
+  fingers.hide(); 
+  createCanvas(330, 505);
+  lienzo=createImage(320,240);
+  button=createButton('Change Kernel!');
+  button.position(120,490);
+  button.mousePressed(changeMatrix);
+  frameRate(3);//solo 3 frames por segundo pues no contamos con gpu
 }
 
 function draw() {
-  // We're only going to process a portion of the image
-  // so let's set the whole image as the background first
- //pixelDensity(0.1);
- //background(img);
- 
- 
-  // Calculate the small rectangle we will process
- 
-  const matrixsize = 3;
-
-  loadPixels();
-  // Begin our loop for every pixel in the smaller image
-  for (let x = 0; x < img.width; x++) {
-    for (let y = 0; y < img.height; y++ ) {
-      let c = convolution(x, y, matrix, matrixsize, img);
-      //let c= img.get(y,x);
-      // retrieve the RGBA values from c and update pixels()
-      let loc = (x + y*img.width) * 4;
-      pixels[loc] = red(c);
-      pixels[loc + 1] = green(c);
-      pixels[loc + 2] = blue(c);
-      pixels[loc + 3] = alpha(c);
-    }
-  }
-
-  updatePixels();
-
-}
-
-function convolution(x, y, matrix, matrixsize, img) {
-  let rtotal = 0.0;
-  let gtotal = 0.0;
-  let btotal = 0.0;
-  const offset = Math.floor(matrixsize / 2);
-  for (let i = 0; i < matrixsize; i++){
-    for (let j = 0; j < matrixsize; j++){
-      
-      // What pixel are we testing
-      const xloc = (x + i - offset);
-      const yloc = (y + j - offset);
-      let loc = (xloc + img.width * yloc) * 4;
-
-      // Make sure we haven't walked off our image, we could do better here
-      loc = constrain(loc, 0 , img.pixels.length - 1);
-
-      // Calculate the convolution
-      // retrieve RGB values
-      rtotal += (img.pixels[loc]) * matrix[i][j];
-      gtotal += (img.pixels[loc + 1]) * matrix[i][j];
-      btotal += (img.pixels[loc + 2]) * matrix[i][j];
-    }
-  }
-  // Make sure RGB is within range
-  rtotal = constrain(rtotal, 0, 255);
-  gtotal = constrain(gtotal, 0, 255);
-  btotal = constrain(btotal, 0, 255);
+  background(0);
+  fingers.loadPixels();
   
-  // Return the resulting color
-  return color(rtotal, gtotal, btotal);
-} 
+  lienzo.loadPixels();//en lienzo pintamos imagen convolucionada
+  // Begin our loop for every pixel in the smaller image
+  for (let x = 0; x <fingers.width; x++) {
+    for (let y = 0; y < fingers.height; y++ ) {
+      let c = convolution(x, y, matrix, matrixsize, fingers);
+      let loc = (x + y*fingers.width) * 4;
+      lienzo.pixels[loc] = red(c);
+      lienzo.pixels[loc + 1] = green(c);
+      lienzo.pixels[loc + 2] = blue(c);
+      lienzo.pixels[loc + 3] = alpha(c);
+      
+    }
+  }
+  lienzo.updatePixels();
+  image(fingers,1,0); 
+  image(lienzo,1,fingers.height+1);//pintamos la imagen convolucionada debajo de la original
+}
+function changeMatrix(){
+  contador=(contador+1)%matrixCarrousel.length;
+
+  matrix=matrixCarrousel[contador];
+}
+function mousePressed() {
+  fingers.loop(); // al presionar en el lienzo blanco inicia el video
+}
+function convolution(x, y, matrix, matrixsize, img) {
+    let rtotal = 0.0;
+    let gtotal = 0.0;
+    let btotal = 0.0;
+    const offset = Math.floor(matrixsize / 2);
+    for (let i = 0; i < matrixsize; i++){
+      for (let j = 0; j < matrixsize; j++){
+        
+        // What pixel are we testing
+        const xloc = (x + i - offset);
+        const yloc = (y + j - offset);
+        let loc = (xloc + img.width * yloc) * 4;
+  
+        // Make sure we haven't walked off our image, we could do better here
+        loc = constrain(loc, 0 , img.pixels.length - 1);
+  
+        // Calculate the convolution
+        // retrieve RGB values
+        rtotal += (img.pixels[loc]) * matrix[i][j];
+        gtotal += (img.pixels[loc + 1]) * matrix[i][j];
+        btotal += (img.pixels[loc + 2]) * matrix[i][j];
+      }
+    }
+    // Make sure RGB is within range
+    rtotal = constrain(rtotal, 0, 255);
+    gtotal = constrain(gtotal, 0, 255);
+    btotal = constrain(btotal, 0, 255);
+    
+    // Return the resulting color
+    return color(rtotal, gtotal, btotal);
+  } 
