@@ -53,7 +53,12 @@ function applyLuma (img){
   }
 }
 
-
+/**
+ * Function based on https://editor.p5js.org/cassie/sketches/SB4pBjns0
+ * 
+ * @param {*} img image to be processed. Function changes the same reference to image 
+ * @param {*} contrast 0 to 100
+ */
 function applyContrast(img, contrast) {
   img.loadPixels();
   for (let x = 0; x < img.width; x +=1) {
