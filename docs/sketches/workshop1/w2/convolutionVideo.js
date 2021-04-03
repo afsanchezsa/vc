@@ -38,6 +38,7 @@ function draw() {
   for (let x = 0; x <fingers.width; x++) {
     for (let y = 0; y < fingers.height; y++ ) {
       let c = convolution(x, y, matrix, matrixsize, fingers);
+      console.log(c)
       let loc = (x + y*fingers.width) * 4;
       lienzo.pixels[loc] = red(c);
       lienzo.pixels[loc + 1] = green(c);
