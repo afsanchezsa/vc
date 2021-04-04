@@ -1,1 +1,0 @@
-> :P5 sketch=/docs/sketches/asciiart.js, width=1000, height=900

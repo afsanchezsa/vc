@@ -2,11 +2,30 @@
 
 > :Collapse label=Workshops
 > 
-> [Imaging & Video](/docs/workshops/imaging)
-> [Rendering](/docs/workshops/rendering)
+> > :Collapse label=Imaging & Video
+> >
+> > [Exercise 1](/docs/workshops/w1_1)
+> > [Exercise 2](/docs/workshops/w1_2)
+> > [Exercise 3](/docs/workshops/w1_3)
+> > [Exercise 4](/docs/workshops/w1_4)
+>
+> > :Collapse label=Rendering
+> >
+>
+> > :Collapse label=Algovis
+> >
+>
+> > :Collapse label=Computer Graphics
+> >
+>
+> > :Collapse label=HCI
+> >
+
+<!-- > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)
 > [Computer Graphics](/docs/workshops/cg)
-> [HCI](/docs/workshops/hci)
+> [HCI](/docs/workshops/hci) -->
+
 
 
 > :Collapse label=P5 Code Snippets
@@ -23,8 +42,8 @@
 
 > :Collapse label=Members
 > 
+> [Gabriel Andres Avendaño Casadiego](/docs/members/GabrielAndresAvendanoCasadiego)
 > [Valetina Bernal Buitrago](/docs/members/ValentinaBernalBuitrago)
 > [Daniela Duque Garcia](/docs/members/DanielaDuqueGarcia)
 > [Juan Diego Medina Naranjo](/docs/members/JuanDiegoMedinaNaranjo)
 > [Andres Felipe Sanchez Sanchez](/docs/members/AndresFelipeSanchezSanchez)
-> [ascii](/docs/members/ascii)
