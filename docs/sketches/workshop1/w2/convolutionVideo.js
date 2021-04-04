@@ -1,6 +1,7 @@
 let fingers;
 let lienzo;
 let contador=0;
+let reproduce = false;
 
 const Blur_Kernel= [ [0.11, 0.11, 0.11],
 [0.11, 0.11, 0.11],
@@ -21,43 +22,53 @@ const matrixsize=3;
 function setup() {
   fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
   fingers.hide(); 
-  createCanvas(330, 505);
+  createCanvas(640, 240);
   lienzo=createImage(320,240);
   button=createButton('Change Kernel!');
-  button.position(120,490);
+  button2=createButton('Play/Pause');
+  button.position(275,200);
+  button2.position(290,225);
   button.mousePressed(changeMatrix);
+  button2.mousePressed(pauseVideo);
   frameRate(3);//solo 3 frames por segundo pues no contamos con gpu
+  noLoop()
 }
 
 function draw() {
   background(0);
-  fingers.loadPixels();
-  
   lienzo.loadPixels();//en lienzo pintamos imagen convolucionada
-  // Begin our loop for every pixel in the smaller image
+  fingers.loadPixels();
+    // Begin our loop for every pixel in the smaller image
   for (let x = 0; x <fingers.width; x++) {
     for (let y = 0; y < fingers.height; y++ ) {
       let c = convolution(x, y, matrix, matrixsize, fingers);
-      console.log(c)
       let loc = (x + y*fingers.width) * 4;
       lienzo.pixels[loc] = red(c);
       lienzo.pixels[loc + 1] = green(c);
       lienzo.pixels[loc + 2] = blue(c);
       lienzo.pixels[loc + 3] = alpha(c);
-      
     }
   }
   lienzo.updatePixels();
-  image(fingers,1,0); 
-  image(lienzo,1,fingers.height+1);//pintamos la imagen convolucionada debajo de la original
+  image(fingers,0,0); 
+  image(lienzo,fingers.width+1,0);//pintamos la imagen convolucionada debajo de la original
 }
 function changeMatrix(){
   contador=(contador+1)%matrixCarrousel.length;
-
   matrix=matrixCarrousel[contador];
 }
-function mousePressed() {
-  fingers.loop(); // al presionar en el lienzo blanco inicia el video
+
+function pauseVideo() {
+  reproduce = !reproduce;
+  if (reproduce){
+    
+    loop();
+    fingers.loop(); // al presionar en el lienzo blanco inicia el video
+  }else{
+    noLoop();
+    button2.na
+    fingers.pause(); // al presionar en el lienzo blanco inicia el video
+  }
 }
 function convolution(x, y, matrix, matrixsize, img) {
     let rtotal = 0.0;
