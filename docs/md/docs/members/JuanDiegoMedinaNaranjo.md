@@ -34,10 +34,9 @@ The Impossible Triangle (also known as the Penrose Triangle or the Impossible Tr
 Mathematicians have studied the mathematical and computational properties of impossible figures to try and develop formulas and algorithms for modelling impossible objects, for use in such things as computer vision. Cognitive scientists have been interested in the processes involved in continuing to see impossible figures as possible even when we know them to be impossible. Why, for instance, do we not see the Impossible Triangle just as some lines on a page once we realise that it can’t exist in three dimensional space? In answering this question, debates about modularity and cognitive penetration are of central importance. To explain: on the hypothesis that the mind is modular, a mental module is a kind of semi-independent department of the mind which deals with particular types of inputs, and gives particular types of outputs, and whose inner workings are not accessible to the conscious awareness of the person – all one can get access to are the relevant outputs. So, in the case of impossible figures, a standard way of explaining why experience of the impossible figure persists even though one knows that one is experiencing an impossibility is that the module, or modules, which constitute the visual system are ‘cognitively impenetrable’ to some degree – i.e. their inner workings and outputs cannot be influenced by conscious awareness
 
 ### Visual Phenomenon
-<!-- <p align="center">
-  <!-- <img width="600" height="600" src="../../../sketches/visual_illusions/penrose/penroseTriangle.png"> -->
-  <img width="500" height="500" src="../sketches/visual_illusions/penrose/penroseTriangle.gif">
-</p> -->
+<p align="center">
+  <img width="800" height="600" src="../sketches/optical_illusions/penroseTriangle.gif">
+</p>
 
 ### Bibliography
 - Macpherson, F., 2010. Impossible Figures. In Goldstein, E. B. ed., Sage Encyclopedia of Perception. Sage Publications, Inc.

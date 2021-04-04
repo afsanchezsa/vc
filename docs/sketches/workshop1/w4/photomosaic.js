@@ -4,7 +4,7 @@ let h_scaled;
 let availableColors;
 let dataset= [];
 let loadedImages = [];
-const scaleFactor = 6;
+const scaleFactor = 8;
 const datasetSize =105;
 
 function preload() {

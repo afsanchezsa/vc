@@ -56,7 +56,6 @@ function conv(edgeImg,kernel, posX, posY){
 
     for (let x = 0; x <img.width; x++) {
         for (let y = 0; y < img.height; y++ ) {
-            //console.log("patitos")
         let c = convolution(x, y, kernel, 3, img);
         let loc = (x + y*img.width) * 4;
         edgeImg.pixels[loc] = red(c);
