@@ -4,8 +4,8 @@ let h_scaled;
 let availableColors;
 let dataset= [];
 let loadedImages = {};
-const scaleFactor = 7;
-const datasetSize =120;
+const scaleFactor = 9;
+const datasetSize =105;
 
 function preload() {
     const location = '../sketches/workshop1/w4/regular_show.jpg'
@@ -50,6 +50,7 @@ function closestColor(r,g,b) {
             index = `${img_i[0]}${img_i[1]}${img_i[2]}`;
         }
     }
+    noLoop()
     return index;
 }
 
@@ -64,4 +65,6 @@ function loadDataset(availableColors){
             loadedImages[`${r}${g}${b}`] = il
         })
     })
+    noLoop()
+
 }
