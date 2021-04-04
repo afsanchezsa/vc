@@ -66,7 +66,6 @@ function pauseVideo() {
     fingers.loop(); // al presionar en el lienzo blanco inicia el video
   }else{
     noLoop();
-    button2.na
     fingers.pause(); // al presionar en el lienzo blanco inicia el video
   }
 }
