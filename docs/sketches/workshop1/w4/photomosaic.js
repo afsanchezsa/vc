@@ -4,7 +4,7 @@ let h_scaled;
 let availableColors;
 let dataset= [];
 let loadedImages = {};
-const scaleFactor = 9;
+const scaleFactor = 8;
 const datasetSize =105;
 
 function preload() {
@@ -15,7 +15,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(650, 850);
+    createCanvas(500, 650);
     image(picture,0,0);
     noLoop();
 }
@@ -30,11 +30,7 @@ function draw() {
             const [r, g, b] = picture.get(x, y);
             const index = closestColor(r,g,b);
             const pixelImage = loadedImages[index];
-            if(x ==40 && y==7){
-
-                print(pixelImage)
-            }
-            image(pixelImage,x*scaleFactor,430 + y*scaleFactor);
+            image(pixelImage,x*scaleFactor,325 + y*scaleFactor);
         }
     }
 }
@@ -50,7 +46,7 @@ function closestColor(r,g,b) {
             index = `${img_i[0]}${img_i[1]}${img_i[2]}`;
         }
     }
-    noLoop()
+    noLoop();
     return index;
 }
 
@@ -65,6 +61,5 @@ function loadDataset(availableColors){
             loadedImages[`${r}${g}${b}`] = il
         })
     })
-    noLoop()
-
+    noLoop();
 }
