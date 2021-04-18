@@ -8,6 +8,7 @@
 > > [Exercise 2](/docs/workshops/w1_2)
 > > [Exercise 3](/docs/workshops/w1_3)
 > > [Exercise 4](/docs/workshops/w1_4)
+> > [Conclusions](/docs/workshops/Conclusions)
 >
 > > :Collapse label=Rendering
 > >
