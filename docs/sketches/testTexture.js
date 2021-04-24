@@ -1,20 +1,24 @@
-let pg;
+
+let img;
 function setup(){
-    createCanvas(500,500,WEBGL);
-   ortho(-width,width,-height,height);
+  createCanvas(720,540,WEBGL);
+  img=loadImage('/vc/docs/sketches/lenna.png');
+   ortho(-width/2,width/2,-height/2,height/2);
+   textureMode(NORMAL);
 }
 
 function draw(){
-    background(200);
-fill(color(255,0,0));
-cover(false);
+background(255);
+texture(img);
+cover(true);
 orbitControl();//poscicion de camara a partir del mouse
+
 }
 
 function cover(texture=false){
-    beginShape();
+beginShape();
 if (texture) {
-    texture(pg);
+  //texture(img);
   vertex(-width / 2, -height / 2, 0, 0, 0);
   vertex(width / 2, -height / 2, 0, 1, 0);
   vertex(width / 2, height / 2, 0, 1, 1);
