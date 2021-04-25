@@ -36,7 +36,8 @@
     vertex(width / 2, height / 2, 0, 1, 1);
     vertex(-width / 2, height / 2, 0, 0, 1);
     endShape(CLOSE)
-    texture (img);
+    //texture (img);
+    theShader.setUniform('texture',img);
     shader(theShader);
     orbitControl();
     //box(300);
