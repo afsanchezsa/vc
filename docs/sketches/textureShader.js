@@ -2,7 +2,7 @@
 let theShader;
 let img;
 function preload() {
-  theShader = loadShader('../sketches/shaders/shader.vert', '../sketches/shaders/texture.frag');
+  theShader = loadShader('../sketches/shaders/shader.vert', '../sketches/shaders/edge.frag');
   img = loadImage('../sketches/lenna.png');
 }
 function setup() {
@@ -11,6 +11,7 @@ function setup() {
   textureMode(NORMAL);
   shader(theShader);
   theShader.setUniform('texture', img);
+  theShader.setUniform('texOffset',[1/img.width,1/img.height]);
 }
 function draw() {
   background(0);
