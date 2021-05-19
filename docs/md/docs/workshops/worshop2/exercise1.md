@@ -1,0 +1,1 @@
+(imágenes/video) Conversión a escala de grises: promedio rgb y luma.

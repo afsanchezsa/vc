@@ -1,0 +1,1 @@
+Visualizar algún algoritmo de computación visual, e.g., image-kernels acá un ejemplo o rasterización de un triángulo empleando coordenadas baricéntricas, etc. Nota: se puede emplear la librería p5.quadrille.js.
