@@ -3,7 +3,7 @@ let w_scaled;
 let h_scaled;
 let availableColors;
 let dataset= [];
-let loadedImages = [];
+let loadedImages = {};
 const scaleFactor = 8;
 const datasetSize =105;
 
@@ -15,7 +15,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(650, 850);
+    createCanvas(500, 650);
     image(picture,0,0);
     noLoop();
 }
@@ -30,7 +30,7 @@ function draw() {
             const [r, g, b] = picture.get(x, y);
             const index = closestColor(r,g,b);
             const pixelImage = loadedImages[index];
-            image(pixelImage,x*scaleFactor,430 + y*scaleFactor);
+            image(pixelImage,x*scaleFactor,325 + y*scaleFactor);
         }
     }
 }
@@ -43,7 +43,7 @@ function closestColor(r,g,b) {
         let distance = dist(r,g,b,img_i[0],img_i[1],img_i[2]);
         if (minDistance == -1 || distance < minDistance) {
             minDistance = distance;
-            index = i;
+            index = `${img_i[0]}${img_i[1]}${img_i[2]}`;
         }
     }
     noLoop();
@@ -58,7 +58,7 @@ function loadDataset(availableColors){
         dataset.push([r,g,b]);
         loadImage(`../sketches/workshop1/w4/dataset/${c}`, il => { 
             il.resize(scaleFactor,scaleFactor);
-            loadedImages.push(il);
+            loadedImages[`${r}${g}${b}`] = il
         })
     })
     noLoop();
