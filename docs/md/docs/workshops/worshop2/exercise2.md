@@ -7,5 +7,6 @@ Apply some convolution mask to images and video
 
 ## Code and Results
 
-> :P5 sketch=/docs/sketches/workshop2/exercice2/exe.js, width=700, height=700
 
+
+> :P5 sketch=/docs/sketches/workshop2/exercice2/video.js, width=640, height=400
