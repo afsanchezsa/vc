@@ -13,7 +13,7 @@ let kernel = matrixCarrousel[0] ;
 
 function preload() {
   theShader = loadShader('/vc/docs/sketches/workshop2/exercice2/shader.vert', '/vc/docs/sketches/workshop2/exercice2/edge.frag');
-  fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
+  fingers = createCapture(VIDEO)
   fingers.hide();
 }
 
@@ -31,7 +31,6 @@ function setup() {
 function draw() {
   background(0);
   
-  fingers.loop()
   beginShape() 
   vertex(-width / 2, height / 2, 0, 0, 1);
   vertex(width / 2, height / 2, 0, 1, 1);
