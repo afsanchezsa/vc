@@ -12,6 +12,7 @@
 >
 > > :Collapse label=Rendering
 > >
+> > [Algorithm - Path Tracing](/docs/workshops/path_tracing)
 >
 > > :Collapse label=Algovis
 > >
