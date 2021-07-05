@@ -1,3 +1,13 @@
+# ASCII ART IN HARDWARE
+
+*ASCII art* is a graphic design technique that uses computer characters for presentation and consists of pictures pieced together from some printable characters defined by the ASCII Standard. However, this requires a lot of simple calculations and therefore consumes high amounts of computer resources. For this reason, these tasks can be done better with *shaders*. 
+
+## Problem statement
+Create an image composed solely of ASCII characters that looks like the original image using shaders. 
+
+
+
+
 # P5 inline code
 
 # > :P5 sketch=/docs/sketches/testTexture.js, width=500, height=500
