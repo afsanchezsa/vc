@@ -7,7 +7,7 @@
 # > :P5 sketch=/docs/sketches/asciiHardware.js, width=500, height=400
 
 
-> :P5 sketch=/docs/sketches/mandrille.js, width=600, height=600
-
+# > :P5 sketch=/docs/sketches/mandrille.js, width=600, height=600
+> :P5 sketch=/docs/sketches/workshop2/hardwareAscii.js, width=600, height=600
 
 > :ToCPrevNext
