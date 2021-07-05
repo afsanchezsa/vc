@@ -1,12 +1,26 @@
 # Convolutional Mask
+
 ## Problem Statement
 Apply some convolution mask to images and video
 
 ## Background
+convolution is a mathematical operation on two functions (f and g) that produces a third function (f*g) that expresses how the shape of one is modified by the other. in the case of image processing the convolution is the proccess of adding each element of the image to its local neighbors , weighted by the kernel to extract certain features from an input image.The kernels will define the size of the convolution, the weights applied to it, and an anchor point usually positioned at the center.The origin is the position of the kernel which is above (conceptually) the current output pixel. For a symmetric kernel, the origin is usually the center element.
 
+Of course we are not restricted to 3x3 kernels - this was only done for simplicity. Kernels can be of just about any size. More sophisticated kernels are typically larger, in fact many image processing software packages have options to customize a kernel.
+
+<p align="center">
+  <img width="600" height="600" src="/docs/sketches/workshop1/w2/conv.gif">
+</p>
+
+One of the earliest uses of the convolution integral appeared in D'Alembert's derivation of Taylor's theorem in Recherches sur différents points importants du système du monde, published in 1754. Soon thereafter, convolution operations appear in the works of Pierre Simon Laplace, Jean-Baptiste Joseph Fourier, Siméon Denis Poisson, and others. The term itself did not come into wide use until the 1950s or 60s. 
 
 ## Code and Results
 
+For this, we use a vertex shader and a fragment shader (The same for image, video and camera recording) and just change the Javascript file. 
+
+The kernel matriz is a 3*3 matriz, and it is passed to the shaders in a uniform vector of floats.
+
+The results and code can be seed above.
 ### Image
 > :Tabs
 > >:Tab title= Visualization
