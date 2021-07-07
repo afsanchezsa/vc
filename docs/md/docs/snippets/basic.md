@@ -8,6 +8,9 @@
 
 
 # > :P5 sketch=/docs/sketches/mandrille.js, width=600, height=600
-> :P5 sketch=/docs/sketches/workshop2/hardwareAscii.js, width=600, height=600
+# > :P5 sketch=/docs/sketches/workshop2/hardwareAscii.js, width=600, height=600
 
+ > :P5 sketch=/docs/sketches/workshop2/rendering.js, width=600, height=600
+
+ 
 > :ToCPrevNext
