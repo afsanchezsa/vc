@@ -21,8 +21,8 @@ function cover(texture=false){
 beginShape();
 
   //texture(img);
-  let Acoord=[-width / 4, -height / 4,0];
-  let Bcoord=[width / 4, -height / 4, 0];
+  let Acoord=[-width / 4, -height / 4,-10];
+  let Bcoord=[width / 4, -height / 4, 80];
   let Ccoord=[-width / 4, height / 4, 0];
   fill (255,0,0);
   vertex(Acoord[0], Acoord[1], Acoord[2]);
@@ -41,10 +41,12 @@ vertex(0,-200,-300);
 vertex(0,100,-300);
 vertex(-300,100,0);
 */
-vertex(0,0,-20);
-vertex(0,200,-20)
-vertex(200,200,-20)
-vertex(200,0,-20)
+baseCoord=[-200,-240]
+ancho=400
+vertex(baseCoord[0],baseCoord[1],-60);
+vertex(baseCoord[0],baseCoord[1]+ancho,-60)
+vertex(baseCoord[0]+ancho,baseCoord[1]+ancho,-60)
+vertex(baseCoord[0]+ancho,baseCoord[1],-60)
 
 
 endShape(CLOSE);
