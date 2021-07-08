@@ -43,13 +43,18 @@ vertex(-300,100,0);
 */
 baseCoord=[-200,-240]
 ancho=400
-vertex(baseCoord[0],baseCoord[1],-60);
-vertex(baseCoord[0],baseCoord[1]+ancho,-60)
-vertex(baseCoord[0]+ancho,baseCoord[1]+ancho,-60)
-vertex(baseCoord[0]+ancho,baseCoord[1],-60)
-
-
+profundidad=-120
+vertex(baseCoord[0],baseCoord[1],profundidad);
+vertex(baseCoord[0],baseCoord[1]+ancho,profundidad)
+vertex(baseCoord[0]+ancho,baseCoord[1]+ancho,profundidad)
+vertex(baseCoord[0]+ancho,baseCoord[1],profundidad)
 endShape(CLOSE);
+
+
+beginShape(POINTS);
+
+vertex((baseCoord[0]*2+ancho)/2,(baseCoord[1]*2+ancho)/2,-300);
+endShape();
 }
 function projection(coord){
 
