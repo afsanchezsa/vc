@@ -1,9 +1,20 @@
 
 let img;
-
+class Square {
+  constructor(x, y,width) {
+    let point1 = [x,y];
+    let point2 = [x,y+width];
+    let point3=[x+width,y+width];
+    let point4=[x+width,y];
+    this.points=[point1,point2,point3,point4]
+  }
+  getPoints(){
+    return this.points;
+  }
+}
 function setup(){
   createCanvas(720,540,WEBGL);
-  img=loadImage('/vc/docs/sketches/lenna.png');
+  //img=loadImage('/vc/docs/sketches/lenna.png');
   ortho(-width/2,width/2,-height/2,height/2);
    textureMode(NORMAL);
    
@@ -105,6 +116,26 @@ vertex(greenPoint[0],greenPoint[1],greenPoint[2])
 fill (0,0,255);
 vertex(bluePoint[0],bluePoint[1],bluePoint[2])
 endShape(CLOSE)
+let squares=[];
+let resolution=10;
+let widthGrid= ancho/resolution;
+
+for(let i=baseCoord[0];i<baseCoord[0]+ancho;i+=widthGrid){
+  for(let j=baseCoord[1];j<baseCoord[1]+ancho;j+=widthGrid){
+    squares.push(new Square(i,j,widthGrid));
+    }
+}
+fill(0,255,255);
+squares.map(sq=>
+  {
+    beginShape(CLOSE);
+    let points=sq.getPoints();
+    vertex(points[0][0],points[0][1],profundidad-0.1);
+    vertex(points[1][0],points[1][1],profundidad-0.1);
+    vertex(points[2][0],points[2][1],profundidad-0.1);
+    vertex(points[3][0],points[3][1],profundidad-0.1);
+    endShape();
+  });
 
 
 }
