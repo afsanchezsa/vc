@@ -18,6 +18,7 @@ orbitControl();//poscicion de camara a partir del mouse
 }
 
 function cover(texture=false){
+  noStroke();
 beginShape();
 
   //texture(img);
@@ -36,11 +37,7 @@ beginShape();
 endShape(CLOSE);
 beginShape();
 fill(0);
-/*vertex(-300,-200,0);
-vertex(0,-200,-300);
-vertex(0,100,-300);
-vertex(-300,100,0);
-*/
+
 baseCoord=[-200,-240]
 ancho=400
 profundidad=-120
@@ -50,11 +47,33 @@ vertex(baseCoord[0]+ancho,baseCoord[1]+ancho,profundidad)
 vertex(baseCoord[0]+ancho,baseCoord[1],profundidad)
 endShape(CLOSE);
 
-
+let focus=[(baseCoord[0]*2+ancho)/2,(baseCoord[1]*2+ancho)/2,-300]
 beginShape(POINTS);
 
-vertex((baseCoord[0]*2+ancho)/2,(baseCoord[1]*2+ancho)/2,-300);
+vertex(focus[0],focus[1],focus[2]);
 endShape();
+dVector=[focus[0]-Acoord[0],focus[1]-Acoord[1],focus[2]-Acoord[2]]
+
+
+beginShape(LINES)
+stroke(255,0,0);
+vertex(Acoord[0],Acoord[1],Acoord[2]);
+vertex(focus[0],focus[1],focus[2]);
+endShape();
+
+beginShape(LINES)
+stroke(0,255,0);
+vertex(Bcoord[0],Bcoord[1],Bcoord[2]);
+vertex(focus[0],focus[1],focus[2]);
+endShape();
+beginShape(LINES)
+stroke(0,0,255);
+vertex(Ccoord[0],Ccoord[1],Ccoord[2]);
+vertex(focus[0],focus[1],focus[2]);
+endShape();
+
+
+
 }
 function projection(coord){
 
