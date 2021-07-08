@@ -52,8 +52,9 @@ beginShape(POINTS);
 
 vertex(focus[0],focus[1],focus[2]);
 endShape();
-dVector=[focus[0]-Acoord[0],focus[1]-Acoord[1],focus[2]-Acoord[2]]
-
+dVector_A=[focus[0]-Acoord[0],focus[1]-Acoord[1],focus[2]-Acoord[2]]
+dVector_B=[focus[0]-Bcoord[0],focus[1]-Bcoord[1],focus[2]-Bcoord[2]]
+dVector_C=[focus[0]-Ccoord[0],focus[1]-Ccoord[1],focus[2]-Ccoord[2]]
 
 beginShape(LINES)
 stroke(255,0,0);
@@ -71,8 +72,14 @@ stroke(0,0,255);
 vertex(Ccoord[0],Ccoord[1],Ccoord[2]);
 vertex(focus[0],focus[1],focus[2]);
 endShape();
+let tA=((profundidad-Acoord[2])/dVector_A[2])-0.01;
+beginShape(POINTS)
+strokeWeight(10);
+stroke(255,0,0);
 
-
+vertex(Acoord[0]+tA*dVector_A[0],Acoord[1]+tA*dVector_A[1],Acoord[2]+tA*dVector_A[2])
+endShape()
+strokeWeight(1);
 
 }
 function projection(coord){
