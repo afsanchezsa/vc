@@ -6,6 +6,7 @@ function setup(){
   img=loadImage('/vc/docs/sketches/lenna.png');
   ortho(-width/2,width/2,-height/2,height/2);
    textureMode(NORMAL);
+   
 }
 
 function draw(){
@@ -73,13 +74,38 @@ vertex(Ccoord[0],Ccoord[1],Ccoord[2]);
 vertex(focus[0],focus[1],focus[2]);
 endShape();
 let tA=((profundidad-Acoord[2])/dVector_A[2])-0.01;
+let redPoint=[Acoord[0]+tA*dVector_A[0],Acoord[1]+tA*dVector_A[1],Acoord[2]+tA*dVector_A[2]]
+
 beginShape(POINTS)
 strokeWeight(10);
 stroke(255,0,0);
+vertex(redPoint[0],redPoint[1],redPoint[2])
+endShape()
+let tB=((profundidad-Bcoord[2])/dVector_B[2])-0.01;
+let greenPoint=[Bcoord[0]+tB*dVector_B[0],Bcoord[1]+tB*dVector_B[1],Bcoord[2]+tB*dVector_B[2]]
+beginShape(POINTS)
+strokeWeight(10);
+stroke(0,255,0);
+vertex(greenPoint[0],greenPoint[1],greenPoint[2])
+endShape()
 
-vertex(Acoord[0]+tA*dVector_A[0],Acoord[1]+tA*dVector_A[1],Acoord[2]+tA*dVector_A[2])
+let tC=((profundidad-Ccoord[2])/dVector_C[2])-0.01;
+let bluePoint=[Ccoord[0]+tC*dVector_C[0],Ccoord[1]+tC*dVector_C[1],Ccoord[2]+tC*dVector_C[2]]
+beginShape(POINTS)
+strokeWeight(10);
+stroke(0,0,255);
+vertex(bluePoint[0],bluePoint[1],bluePoint[2])
 endShape()
 strokeWeight(1);
+beginShape()
+fill (255,0,0);
+vertex(redPoint[0],redPoint[1],redPoint[2])
+fill (0,255,0);
+vertex(greenPoint[0],greenPoint[1],greenPoint[2])
+fill (0,0,255);
+vertex(bluePoint[0],bluePoint[1],bluePoint[2])
+endShape(CLOSE)
+
 
 }
 function projection(coord){
