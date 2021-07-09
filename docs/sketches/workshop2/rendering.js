@@ -12,6 +12,7 @@ class Square {
     return this.points;
   }
 }
+
 function setup(){
   createCanvas(720,540,WEBGL);
   //img=loadImage('/vc/docs/sketches/lenna.png');
@@ -125,21 +126,54 @@ for(let i=baseCoord[0];i<baseCoord[0]+ancho;i+=widthGrid){
     squares.push(new Square(i,j,widthGrid));
     }
 }
-fill(0,0,255);
+fill(80,80,80);
 stroke(255,255,255)
 squares.map(sq=>
   {
+    
     beginShape();
     let points=sq.getPoints();
+    let barcoord=barycentricCoord(points[0],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
+    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
     vertex(points[0][0],points[0][1],profundidad-0.3);
+    barcoord=barycentricCoord(points[1],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
+    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
     vertex(points[1][0],points[1][1],profundidad-0.3);
+    barcoord=barycentricCoord(points[2],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
+    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
     vertex(points[2][0],points[2][1],profundidad-0.3);
+    barcoord=barycentricCoord(points[3],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
+    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
     vertex(points[3][0],points[3][1],profundidad-0.3);
     endShape(CLOSE);
   });
 
 
 }
-function projection(coord){
+function barycentricCoord(p,redPoint,greenPoint,bluePoint){
+let v0=greenPoint;
+let v1,v2;
 
+if(greenPoint[0]>redPoint[0]){
+v1=bluePoint;
+v2=redPoint;
+}else{
+  v1=redPoint;
+  v2=bluePoint;
+}
+
+let f12=(v1[1]-v2[1])*p[0]+(v2[0]-v1[0])*p[1]+(v1[0]*v2[1]-v1[1]*v2[0]);
+let f20=(v2[1]-v0[1])*p[0]+(v0[0]-v2[0])*p[1]+(v2[0]*v0[1]-v2[1]*v0[0]);
+let f01=(v0[1]-v1[1])*p[0]+(v1[0]-v0[0])*p[1]+(v0[0]*v1[1]-v0[1]*v1[0]);
+
+if(f12<0 || f20<0||f01<0){
+ 
+  return [1,1,1];
+  
+}
+let area=f12+f20+f01;
+lambda0=f12/area;
+lambda1=f20/area;
+lambda2=f01/area;
+return [lambda0,lambda1,lambda2];
 }
