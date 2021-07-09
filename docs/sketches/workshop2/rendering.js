@@ -133,17 +133,17 @@ squares.map(sq=>
     
     beginShape();
     let points=sq.getPoints();
-    let barcoord=barycentricCoord(points[0],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
-    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
+    let barcoord1=barycentricCoord(points[0],[redPoint[0],redPoint[1]],[greenPoint[0],greenPoint[1]],[bluePoint[0],bluePoint[1]]);
+    fill(255*barcoord1[0],255*barcoord1[1],255*barcoord1[2]);
     vertex(points[0][0],points[0][1],profundidad-0.3);
-    barcoord=barycentricCoord(points[1],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
-    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
+    let barcoord2=barycentricCoord(points[1],[redPoint[0],redPoint[1]],[greenPoint[0],greenPoint[1]],[bluePoint[0],bluePoint[1]]);
+    fill(255*barcoord2[0],255*barcoord2[1],255*barcoord2[2]);
     vertex(points[1][0],points[1][1],profundidad-0.3);
-    barcoord=barycentricCoord(points[2],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
-    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
+    let barcoord3=barycentricCoord(points[2],[redPoint[0],redPoint[1]],[greenPoint[0],greenPoint[1]],[bluePoint[0],bluePoint[1]]);
+    fill(255*barcoord3[0],255*barcoord3[1],255*barcoord3[2]);
     vertex(points[2][0],points[2][1],profundidad-0.3);
-    barcoord=barycentricCoord(points[3],[Acoord[0],Acoord[1]],[Bcoord[0],Bcoord[1]],[Ccoord[0],Ccoord[1]]);
-    fill(255*barcoord[0],255*barcoord[1],255*barcoord[2]);
+    let barcoord4=barycentricCoord(points[3],[redPoint[0],redPoint[1]],[greenPoint[0],greenPoint[1]],[bluePoint[0],bluePoint[1]]);
+    fill(255*barcoord4[0],255*barcoord4[1],255*barcoord4[2]);
     vertex(points[3][0],points[3][1],profundidad-0.3);
     endShape(CLOSE);
   });
@@ -175,5 +175,10 @@ let area=f12+f20+f01;
 lambda0=f12/area;
 lambda1=f20/area;
 lambda2=f01/area;
-return [lambda0,lambda1,lambda2];
+if(bluePoint==v1){
+  return [lambda2,lambda0,lambda1];
+}else{
+  return [lambda1,lambda0,lambda2];
+}
+
 }
