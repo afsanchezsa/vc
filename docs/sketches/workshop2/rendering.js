@@ -1,5 +1,6 @@
 
 let img;
+let count=0;
 class Square {
   constructor(x, y,width) {
     let point1 = [x,y];
@@ -12,7 +13,11 @@ class Square {
     return this.points;
   }
 }
-
+function mul(vector,degrees){
+  let matrixRotation=[[Math.cos(Math.PI*degrees/180),-Math.sin(Math.PI*degrees/180)],
+                    [Math.sin(Math.PI*degrees/180),Math.cos(Math.PI*degrees/180)]]
+  return [vector[0]*matrixRotation[0][0]+vector[1]*matrixRotation[0][1],vector[0]*matrixRotation[1][0]+vector[1]*matrixRotation[1][1],vector[2]]
+}
 function setup(){
   createCanvas(720,540,WEBGL);
   //img=loadImage('/vc/docs/sketches/lenna.png');
@@ -23,7 +28,7 @@ function setup(){
 
 function draw(){
 background(255);
-
+count=(count+5)%360;
 cover(true);
 //texture(img);
 orbitControl();//poscicion de camara a partir del mouse
@@ -35,9 +40,13 @@ function cover(texture=false){
 beginShape();
 
   //texture(img);
+  let degrees=count;
   let Acoord=[-width / 4, -height / 4,-10];
+  Acoord=mul(Acoord,degrees)
   let Bcoord=[width / 4, -height / 4, 80];
+  Bcoord=mul(Bcoord,degrees)
   let Ccoord=[-width / 4, height / 4, 0];
+  Ccoord=mul(Ccoord,degrees)
   fill (255,0,0);
   vertex(Acoord[0], Acoord[1], Acoord[2]);
   fill(0,255,0);
@@ -151,15 +160,32 @@ squares.map(sq=>
 
 }
 function barycentricCoord(p,redPoint,greenPoint,bluePoint){
-let v0=greenPoint;
+let v0;
 let v1,v2;
-
-if(greenPoint[0]>redPoint[0]){
-v1=bluePoint;
-v2=redPoint;
-}else{
-  v1=redPoint;
+if(count>=90&&count<=269){
+  v0=redPoint;
+  if((redPoint[0]>greenPoint[0])){
+  
+  v1=greenPoint;
   v2=bluePoint;
+  }else{
+    v1=bluePoint;
+    v2=greenPoint;
+  
+  }
+  
+
+
+}else{
+  v0=greenPoint;
+  if(greenPoint[0]>redPoint[0]){
+  v1=bluePoint;
+  v2=redPoint;
+  }else{
+    v1=redPoint;
+    v2=bluePoint;
+  }
+  
 }
 
 let f12=(v1[1]-v2[1])*p[0]+(v2[0]-v1[0])*p[1]+(v1[0]*v2[1]-v1[1]*v2[0]);
@@ -175,10 +201,19 @@ let area=f12+f20+f01;
 lambda0=f12/area;
 lambda1=f20/area;
 lambda2=f01/area;
-if(bluePoint==v1){
-  return [lambda2,lambda0,lambda1];
+if(!(redPoint[0]>greenPoint[0])){
+  if(bluePoint==v1){
+    return [lambda2,lambda0,lambda1];
+  }else{
+    return [lambda1,lambda0,lambda2];
+  }
 }else{
-  return [lambda1,lambda0,lambda2];
+  if(v1==greenPoint){
+    return[lambda0,lambda1,lambda2];
+  }else{
+    return[lambda0,lambda2,lambda1];
+  }
 }
+
 
 }
