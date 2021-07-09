@@ -118,7 +118,7 @@ fill (0,0,255);
 vertex(bluePoint[0],bluePoint[1],bluePoint[2])
 endShape(CLOSE)
 let squares=[];
-let resolution=10;
+let resolution=20;
 let widthGrid= ancho/resolution;
 
 for(let i=baseCoord[0];i<baseCoord[0]+ancho;i+=widthGrid){
@@ -127,7 +127,7 @@ for(let i=baseCoord[0];i<baseCoord[0]+ancho;i+=widthGrid){
     }
 }
 fill(80,80,80);
-stroke(255,255,255)
+stroke(0);
 squares.map(sq=>
   {
     
