@@ -1,6 +1,9 @@
 
 let img;
 let count=0;
+let i=0;
+let maxFr=0;
+let frames=0;
 class Square {
   constructor(x, y,width) {
     let point1 = [x,y];
@@ -23,10 +26,20 @@ function setup(){
   //img=loadImage('/vc/docs/sketches/lenna.png');
   ortho(-width/2,width/2,-height/2,height/2);
    textureMode(NORMAL);
-   
+frameRate(80);
 }
 
 function draw(){
+let f=frameRate()
+frames+=f;
+maxFr=maxFr<f?f:maxFr;
+i+=1;
+if(i%100==0){
+console.log("max"+maxFr);
+console.log("avg:"+frames/i);
+i=0;
+frames=0;
+}
 background(255);
 count=(count+5)%360;
 cover(true);
