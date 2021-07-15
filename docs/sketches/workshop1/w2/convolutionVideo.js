@@ -1,7 +1,7 @@
 let fingers;
 let lienzo;
 let contador=0;
-let reproduce = false;
+let reproduce = true;
 
 const Blur_Kernel= [ [0.11, 0.11, 0.11],
 [0.11, 0.11, 0.11],

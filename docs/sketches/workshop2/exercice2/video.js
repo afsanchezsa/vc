@@ -1,6 +1,7 @@
-
 let theShader;
-let img;
+let fingers;
+let reproduce = false;
+
 const Blur_Kernel= [ 0.11, 0.11, 0.11 ,0.11, 0.11, 0.11, 0.11, 0.11, 0.11]; 
 let Border_Detection= [ -1.0, -1.0, -1.0 , -1.0,  8.0, -1.0 , -1.0, -1.0, -1.0  ];
 const Emboss= [ 1,  1,  0, 1,  0, -1 , 0,  -1,  -1]; 
@@ -12,7 +13,8 @@ let kernel = matrixCarrousel[0] ;
 
 function preload() {
   theShader = loadShader('/vc/docs/sketches/workshop2/exercice2/shader.vert', '/vc/docs/sketches/workshop2/exercice2/edge.frag');
-  img = loadImage('/vc/docs/sketches/lenna.png');
+  fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
+  fingers.hide();
 }
 
 function setup() {
@@ -20,14 +22,16 @@ function setup() {
   noStroke();
   textureMode(NORMAL); 
   shader(theShader);
-  theShader.setUniform('texture', img);
-  theShader.setUniform('texOffset',[1/img.width,1/img.height]);
+  theShader.setUniform('texture', fingers);
+  theShader.setUniform('texOffset',[1/fingers.width,1/fingers.height]);
   button=createButton('Change Kernel!');
   button.position(300,350);
   button.mousePressed(changeMatrix);
 }
 function draw() {
   background(0);
+  
+  fingers.loop()
   beginShape() 
   vertex(-width / 2, height / 2, 0, 0, 1);
   vertex(width / 2, height / 2, 0, 1, 1);
@@ -41,4 +45,3 @@ function changeMatrix(){
   contador=(contador+1)%matrixCarrousel.length;
   kernel=matrixCarrousel[contador];
 }
-// good example in https://editor.p5js.org/cocopon/sketches/rke1-X8t7
