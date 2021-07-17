@@ -1,5 +1,7 @@
 let img;
 let count=0;
+const PERSPECTIVE="Perspective";
+const ORTHOGONAL="Orthogonal";
 class Square {
   constructor(x, y,width) {
     let point1 = [x,y];
@@ -17,12 +19,34 @@ function mul(vector,degrees){
                     [Math.sin(Math.PI*degrees/180),Math.cos(Math.PI*degrees/180)]]
   return [vector[0]*matrixRotation[0][0]+vector[1]*matrixRotation[0][1],vector[0]*matrixRotation[1][0]+vector[1]*matrixRotation[1][1],vector[2]]
 }
+function traceLine(pointA,pointB){
+  beginShape(LINES)
+  vertex(pointA[0],pointA[1],pointA[2]);
+  vertex(pointB[0],pointB[1],pointB[2]);
+  endShape();
+}
+function tracePoint(point){
+  beginShape(POINTS)
+strokeWeight(10);
+
+vertex(point[0],point[1],point[2])
+endShape()
+}
+
+let projection;
 function setup(){
   createCanvas(720,540,WEBGL);
   //img=loadImage('/vc/docs/sketches/lenna.png');
   ortho(-width/2,width/2,-height/2,height/2);
    textureMode(NORMAL);
+   sel = createSelect();
+   sel.option(PERSPECTIVE);
+   sel.option(ORTHOGONAL);
    
+   sel.changed(changeProjection);
+}
+function changeProjection(){
+  projection=sel.value();
 }
 
 function draw(){
@@ -76,46 +100,24 @@ endShape();
 dVector_A=[focus[0]-Acoord[0],focus[1]-Acoord[1],focus[2]-Acoord[2]]
 dVector_B=[focus[0]-Bcoord[0],focus[1]-Bcoord[1],focus[2]-Bcoord[2]]
 dVector_C=[focus[0]-Ccoord[0],focus[1]-Ccoord[1],focus[2]-Ccoord[2]]
-
-beginShape(LINES)
 stroke(255,0,0);
-vertex(Acoord[0],Acoord[1],Acoord[2]);
-vertex(focus[0],focus[1],focus[2]);
-endShape();
-
-beginShape(LINES)
+traceLine(Acoord,focus);
 stroke(0,255,0);
-vertex(Bcoord[0],Bcoord[1],Bcoord[2]);
-vertex(focus[0],focus[1],focus[2]);
-endShape();
-beginShape(LINES)
+traceLine(Bcoord,focus);
 stroke(0,0,255);
-vertex(Ccoord[0],Ccoord[1],Ccoord[2]);
-vertex(focus[0],focus[1],focus[2]);
-endShape();
+traceLine(Ccoord,focus);
 let tA=((profundidad-Acoord[2])/dVector_A[2])-0.01;
 let redPoint=[Acoord[0]+tA*dVector_A[0],Acoord[1]+tA*dVector_A[1],Acoord[2]+tA*dVector_A[2]]
-
-beginShape(POINTS)
-strokeWeight(10);
 stroke(255,0,0);
-vertex(redPoint[0],redPoint[1],redPoint[2])
-endShape()
+tracePoint(redPoint);
 let tB=((profundidad-Bcoord[2])/dVector_B[2])-0.01;
 let greenPoint=[Bcoord[0]+tB*dVector_B[0],Bcoord[1]+tB*dVector_B[1],Bcoord[2]+tB*dVector_B[2]]
-beginShape(POINTS)
-strokeWeight(10);
 stroke(0,255,0);
-vertex(greenPoint[0],greenPoint[1],greenPoint[2])
-endShape()
-
+tracePoint(greenPoint);
 let tC=((profundidad-Ccoord[2])/dVector_C[2])-0.01;
 let bluePoint=[Ccoord[0]+tC*dVector_C[0],Ccoord[1]+tC*dVector_C[1],Ccoord[2]+tC*dVector_C[2]]
-beginShape(POINTS)
-strokeWeight(10);
 stroke(0,0,255);
-vertex(bluePoint[0],bluePoint[1],bluePoint[2])
-endShape()
+tracePoint(bluePoint);
 strokeWeight(1);
 beginShape()
 fill (255,0,0);
