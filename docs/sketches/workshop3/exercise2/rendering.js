@@ -2,6 +2,7 @@ let img;
 let count=0;
 const PERSPECTIVE="Perspective";
 const ORTHOGONAL="Orthogonal";
+const profundidadFocus=-300;
 class Square {
   constructor(x, y,width) {
     let point1 = [x,y];
@@ -33,7 +34,7 @@ vertex(point[0],point[1],point[2])
 endShape()
 }
 
-let projection;
+let projection=PERSPECTIVE;
 function setup(){
   createCanvas(720,540,WEBGL);
   //img=loadImage('/vc/docs/sketches/lenna.png');
@@ -92,20 +93,30 @@ vertex(baseCoord[0]+ancho,baseCoord[1]+ancho,profundidad)
 vertex(baseCoord[0]+ancho,baseCoord[1],profundidad)
 endShape(CLOSE);
 
-let focus=[(baseCoord[0]*2+ancho)/2,(baseCoord[1]*2+ancho)/2,-300]
+let focus=[(baseCoord[0]*2+ancho)/2,(baseCoord[1]*2+ancho)/2,profundidadFocus]
 beginShape(POINTS);
-
 vertex(focus[0],focus[1],focus[2]);
 endShape();
+let dVector_A,dVector_B,dVector_C;
+if(projection==PERSPECTIVE){
 dVector_A=[focus[0]-Acoord[0],focus[1]-Acoord[1],focus[2]-Acoord[2]]
 dVector_B=[focus[0]-Bcoord[0],focus[1]-Bcoord[1],focus[2]-Bcoord[2]]
 dVector_C=[focus[0]-Ccoord[0],focus[1]-Ccoord[1],focus[2]-Ccoord[2]]
+}
+else if(projection==ORTHOGONAL) {
+dVector_A=[0,0,focus[2]-Acoord[2]]
+dVector_B=[0,0,focus[2]-Bcoord[2]]
+dVector_C=[0,0,focus[2]-Ccoord[2]]
+}
+let redFocus=[Acoord[0]+dVector_A[0],Acoord[1]+dVector_A[1],Acoord[2]+dVector_A[2]];
 stroke(255,0,0);
-traceLine(Acoord,focus);
+traceLine(Acoord,redFocus);
+let greenFocus=[Bcoord[0]+dVector_B[0],Bcoord[1]+dVector_B[1],Bcoord[2]+dVector_B[2]];
 stroke(0,255,0);
-traceLine(Bcoord,focus);
+traceLine(Bcoord,greenFocus);
+let blueFocus=[Ccoord[0]+dVector_C[0],Ccoord[1]+dVector_C[1],Ccoord[2]+dVector_C[2]];
 stroke(0,0,255);
-traceLine(Ccoord,focus);
+traceLine(Ccoord,blueFocus);
 let tA=((profundidad-Acoord[2])/dVector_A[2])-0.01;
 let redPoint=[Acoord[0]+tA*dVector_A[0],Acoord[1]+tA*dVector_A[1],Acoord[2]+tA*dVector_A[2]]
 stroke(255,0,0);
