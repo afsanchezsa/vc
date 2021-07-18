@@ -1,5 +1,6 @@
 let img;
 let count=0;
+let resolution=20;
 const PERSPECTIVE="Perspective";
 const ORTHOGONAL="Orthogonal";
 const profundidadFocus=-300;
@@ -43,8 +44,8 @@ function setup(){
    sel = createSelect();
    sel.option(PERSPECTIVE);
    sel.option(ORTHOGONAL);
-   
    sel.changed(changeProjection);
+  sld=createSlider(10,40,10,10);
 }
 function changeProjection(){
   projection=sel.value();
@@ -56,7 +57,12 @@ count=(count+5)%360;
 cover(true);
 //texture(img);
 orbitControl();//poscicion de camara a partir del mouse
-
+resolution=sld.value();
+if (resolution>20){
+  frameRate(20);
+}else{
+  frameRate(40);
+}
 }
 
 function cover(texture=false){
@@ -139,7 +145,7 @@ fill (0,0,255);
 vertex(bluePoint[0],bluePoint[1],bluePoint[2])
 endShape(CLOSE)
 let squares=[];
-let resolution=20;
+
 let widthGrid= ancho/resolution;
 
 for(let i=baseCoord[0];i<baseCoord[0]+ancho;i+=widthGrid){
