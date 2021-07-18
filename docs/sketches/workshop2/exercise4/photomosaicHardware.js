@@ -1,26 +1,29 @@
 let mosaic;
-
 let symbol1;
+let myImage;
 let debug;
 const WIDTH_PIXEL=150;
 const HEIGHT_PIXEL=150;
-const NUM_IMAGES=10;
+const NUM_IMAGES=30;
 function preload(){
- // image=loadImage('../sketches/images/omkara.png')
+ myImage=loadImage('/vc/docs/sketches/images/omkara.png')
  // symbol1=loadImage('../sketches/images/ascii.png')
- // mosaic=loadShader('../sketches/shaders/shader.vert','../sketches/shaders/asciiShader.frag')
+  mosaic=loadShader('/vc/docs/sketches/shaders/shader.vert','/vc/docs/sketches/shaders/hardwarePhotomosaic.frag')
 }
 
 function setup(){
-  createCanvas(WIDTH_PIXEL*NUM_IMAGES, HEIGHT_PIXEL);
-  //textureMode(NORMAL);
-  //noStroke();
-  //shader(mosaic);
-  //mosaic.setUniform('image',image)
-  //mosaic.setUniform('symbol1',symbol1)
+  createCanvas(600, 600,WEBGL);
+  textureMode(NORMAL);
+  noStroke();
+  shader(mosaic);
+  mosaic.setUniform('image',myImage)
+  
   //mosaic.setUniform('resolution',30)
-  //debug=true
-  //mosaic.setUniform('debug',debug)
+  mosaic.setUniform('WIDTH_PIXEL',WIDTH_PIXEL);
+  mosaic.setUniform('NUM_IMAGES',NUM_IMAGES);
+  mosaic.setUniform('HEIGHT_PIXEL',HEIGHT_PIXEL);
+  debug=true
+  mosaic.setUniform('debug',debug)
   let img = createImage(WIDTH_PIXEL*NUM_IMAGES, HEIGHT_PIXEL);
 img.loadPixels();
 let w;
@@ -34,13 +37,13 @@ for (let i = 0; i < img.width; i++) {
   }
 }
 img.updatePixels();
-image(img, 0, 0);
-noLoop()
+//image(img, 0, 0);
+mosaic.setUniform('symbol1',img)
 }
 
 function draw(){
- // background(33);
-  //cover(true);
+  background(33);
+  cover(true);
 }
 
 function cover(texture=false){

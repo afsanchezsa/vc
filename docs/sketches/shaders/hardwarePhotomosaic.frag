@@ -2,7 +2,7 @@ precision mediump float;
 uniform sampler2D image;
 uniform sampler2D symbol1;
 uniform bool debug;
-uniform float resolution;
+//uniform float resolution;
 uniform float NUM_IMAGES;
 uniform float WIDTH_PIXEL;
 uniform float HEIGHT_PIXEL;
@@ -30,7 +30,7 @@ void main() {
     float level=floor(temp);
     
    
-    float y0=0;
+    float y0=0.0;
     float x0= module(level,NUM_IMAGES)*scalingfactor;
 
     vec2 myCoord=(symbolCoord*scalingfactor)+vec2(x0,y0);
