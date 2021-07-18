@@ -33,5 +33,5 @@ void main() {
     vec2 myCoord=(symbolCoord*vec2(1.0)/vec2(7.0))+vec2(x0,y0);
     vec4 finalColor=texture2D(symbol1,myCoord);
 
-    gl_FragColor = debug?finalColor:vec4(brigthness);
+    gl_FragColor = debug?finalColor:col;
 }
