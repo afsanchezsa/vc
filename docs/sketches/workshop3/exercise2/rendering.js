@@ -169,11 +169,11 @@ function cover(texture = false) {
     beginShape();
     let points = sq.getPoints();
     let barcoord1 = barycentricCoord(points[0], [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
-      let barcoord2 = barycentricCoord(points[1], [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
-      let barcoord3 = barycentricCoord(points[2], [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
-      let barcoord4 = barycentricCoord(points[3], [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
-      
-    if (!aliasing||!cointained(barcoord1,barcoord2,barcoord3,barcoord4)) {
+    let barcoord2 = barycentricCoord(points[1], [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
+    let barcoord3 = barycentricCoord(points[2], [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
+    let barcoord4 = barycentricCoord(points[3], [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
+
+    if (!aliasing || !cointained(barcoord1, barcoord2, barcoord3, barcoord4)) {
       let avgPoint = [(points[0][0] + points[2][0]) / 2, (points[0][1] + points[2][1]) / 2];
       let barcoord = barycentricCoord(avgPoint, [redPoint[0], redPoint[1]], [greenPoint[0], greenPoint[1]], [bluePoint[0], bluePoint[1]]);
       fill(255 * barcoord[0], 255 * barcoord[1], 255 * barcoord[2]);
@@ -183,14 +183,14 @@ function cover(texture = false) {
       vertex(points[3][0], points[3][1], profundidad - 0.3);
 
     } else {
-      
+
       fill(255 * barcoord1[0], 255 * barcoord1[1], 255 * barcoord1[2]);
       vertex(points[0][0], points[0][1], profundidad - 0.3);
-            fill(255 * barcoord2[0], 255 * barcoord2[1], 255 * barcoord2[2]);
+      fill(255 * barcoord2[0], 255 * barcoord2[1], 255 * barcoord2[2]);
       vertex(points[1][0], points[1][1], profundidad - 0.3);
-            fill(255 * barcoord3[0], 255 * barcoord3[1], 255 * barcoord3[2]);
+      fill(255 * barcoord3[0], 255 * barcoord3[1], 255 * barcoord3[2]);
       vertex(points[2][0], points[2][1], profundidad - 0.3);
-            fill(255 * barcoord4[0], 255 * barcoord4[1], 255 * barcoord4[2]);
+      fill(255 * barcoord4[0], 255 * barcoord4[1], 255 * barcoord4[2]);
       vertex(points[3][0], points[3][1], profundidad - 0.3);
     }
 
@@ -199,11 +199,11 @@ function cover(texture = false) {
 
 
 }
-function cointained(barCood1,barCood2,barCood3,barCood4){
-  return (barCood1[0]!=1||barCood1[1]!=1 ||barCood1[2]!=1)
-  ||(barCood2[0]!=1||barCood2[1]!=1 ||barCood2[2]!=1)
-  ||(barCood3[0]!=1||barCood3[1]!=1 ||barCood3[2]!=1)
-  ||(barCood4[0]!=1||barCood4[1]!=1 ||barCood4[2]!=1)
+function cointained(barCood1, barCood2, barCood3, barCood4) {
+  return (barCood1[0] != 1 || barCood1[1] != 1 || barCood1[2] != 1)
+    || (barCood2[0] != 1 || barCood2[1] != 1 || barCood2[2] != 1)
+    || (barCood3[0] != 1 || barCood3[1] != 1 || barCood3[2] != 1)
+    || (barCood4[0] != 1 || barCood4[1] != 1 || barCood4[2] != 1)
 }
 function barycentricCoord(p, redPoint, greenPoint, bluePoint) {
   let v0;
