@@ -6,7 +6,7 @@ const WIDTH_PIXEL=150;
 const HEIGHT_PIXEL=150;
 const NUM_IMAGES=30;
 function preload(){
- myImage=loadImage('/vc/docs/sketches/images/omkara.png')
+ myImage=loadImage('/vc/docs/sketches/images/mandrill.png')
  // symbol1=loadImage('../sketches/images/ascii.png')
   mosaic=loadShader('/vc/docs/sketches/shaders/shader.vert','/vc/docs/sketches/shaders/hardwarePhotomosaic.frag')
 }
@@ -18,7 +18,7 @@ function setup(){
   shader(mosaic);
   mosaic.setUniform('image',myImage)
   
-  //mosaic.setUniform('resolution',30)
+  mosaic.setUniform('resolution',50)
   mosaic.setUniform('WIDTH_PIXEL',WIDTH_PIXEL);
   mosaic.setUniform('NUM_IMAGES',NUM_IMAGES);
   mosaic.setUniform('HEIGHT_PIXEL',HEIGHT_PIXEL);
